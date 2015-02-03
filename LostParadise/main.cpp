@@ -18,7 +18,7 @@ int main()
 			}
 		}
 		b = !b;
-		shape.setPosition(0.f, (b ? 10.f : 0.f));
+		shape.setPosition(rand() % 640, rand()%480);
 		window.clear();
 		window.draw(shape);
 		window.display();
