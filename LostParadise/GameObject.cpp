@@ -22,3 +22,8 @@ void GameObject::setSprite(sf::Texture* texture)
 {
 	sprite = new sf::Sprite(*texture);
 }
+
+void GameObject::update(float dt)
+{
+
+}

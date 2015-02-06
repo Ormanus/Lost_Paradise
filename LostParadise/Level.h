@@ -12,9 +12,11 @@ public:
 	void init();
 	void update(float deltaTime);
 	void draw();
+	sf::RenderWindow* getWindow(){ return window; }
 private:
 	std::vector<GameObject*> objects;
 	sf::RenderWindow* window;
+	std::vector<sf::Texture*> textures;
 };
 
 
