@@ -47,12 +47,4 @@ void Level::init()
 	sf::Sprite* sprite = new sf::Sprite(*textures[textures.size() - 1]);
 
 	//create GameObjects
-	for (int i = 0; i < 10; i++)
-	{
-		GameObject* go;
-		go = new Wall();
-		go->setSprite(sprite);
-		go->setPosition(i*32, 64);
-		objects.push_back(go);
-	}
 }

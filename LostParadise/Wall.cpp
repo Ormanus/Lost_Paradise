@@ -12,14 +12,11 @@ Wall::~Wall()
 
 void Wall::update(float dt)
 {
-	position.x++;
-	if (position.x > 480)
-	{
-		position.x = 0;
-	}
+
 }
 
 void Wall::draw(sf::RenderWindow* target, sf::RenderStates states) const
 {
+	sprite->setPosition(position);
 	target->draw(*sprite);
 }
