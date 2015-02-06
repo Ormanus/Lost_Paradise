@@ -1,14 +1,24 @@
 #include "SFML\Graphics.hpp"
+#include "Level.h"
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(640, 480), "TEST");
-	sf::CircleShape shape(50.f);
-	shape.setFillColor(sf::Color::Green);
-	shape.setPosition(0, 0);
-	bool b = 0;
+	window.setFramerateLimit(60);
+
+	//init level
+	Level level;
+
+	sf::Clock Clock;
 	while (window.isOpen())
 	{
+
+		sf::Time time = Clock.getElapsedTime();
+		Clock.restart();
+		float dt = time.asMilliseconds() / 1000;
+
+		level.update(dt);
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -17,10 +27,9 @@ int main()
 				window.close();
 			}
 		}
-		b = !b;
-		shape.setPosition(rand() % 640, rand()%480);
+
 		window.clear();
-		window.draw(shape);
+
 		window.display();
 	}
 

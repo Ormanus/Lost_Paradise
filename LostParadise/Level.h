@@ -9,10 +9,12 @@ class Level
 public:
 	Level();
 	~Level();
-	void update();
+	void init();
+	void update(float deltaTime);
 	void draw();
 private:
 	std::vector<GameObject*> objects;
+	sf::RenderWindow* window;
 };
 
 
