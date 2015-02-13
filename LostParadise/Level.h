@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "GameObject.h"
+#include "Player.h"
 
 class Level
 {
@@ -17,6 +18,8 @@ private:
 	std::vector<GameObject*> objects;
 	sf::RenderWindow* window;
 	std::vector<sf::Texture*> textures;
+	Player* player;
+	void loadTexture(std::string path);
 };
 
 

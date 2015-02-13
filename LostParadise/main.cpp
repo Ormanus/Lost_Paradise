@@ -14,15 +14,6 @@ int main()
 		sf::Time time = Clock.getElapsedTime();
 		Clock.restart();
 		float dt = time.asMilliseconds()/10;
-
-		sf::Event event;
-		while (window->pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-			{
-				window->close();
-			}
-		}
 		level.update(dt);
 		level.draw();
 	}
