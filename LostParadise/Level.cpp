@@ -1,5 +1,6 @@
 #include "Level.h"
 #include "Wall.h"
+#include "CollisionDetector.h"
 
 Level::Level()
 {
@@ -62,7 +63,11 @@ void Level::init()
 
 	//create GameObjects
 	player = new Player();
-	player->setSprite( new sf::Sprite(*textures[1]));
+	detector = new CollisionDetector(&objects);
+	sf::Sprite* spr = new sf::Sprite(*textures[0]);
+	spr->setScale(1, 2);
+	player->setSprite( spr );
+	player->setDetector(detector);
 	objects.push_back(player);
 
 	GameObject* obj = 0;
@@ -71,12 +76,14 @@ void Level::init()
 	{
 		for (int j = 0; j < 4; j++)
 		{
-			obj = new Wall();
-			obj->setSprite(new sf::Sprite(*textures[(j % 3) + 2]));
-			obj->setPosition(i*64 + 128, j*64 + 128);
+			obj = new Wall(64, 64);
+			obj->setSprite(new sf::Sprite(*textures[(j % 4) + 1]));
+			obj->setPosition(i*64, j*64 + 128);
 			objects.push_back(obj);
 		}
 	}
+	detector->setVector(&objects);
+
 }
 
 void Level::loadTexture(std::string path)

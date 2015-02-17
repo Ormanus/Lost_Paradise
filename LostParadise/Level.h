@@ -20,6 +20,7 @@ private:
 	std::vector<sf::Texture*> textures;
 	Player* player;
 	void loadTexture(std::string path);
+	CollisionDetector* detector;
 };
 
 
