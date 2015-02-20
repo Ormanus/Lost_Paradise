@@ -20,9 +20,21 @@ void Player::update(float dt)
 	sf::Vector2f pos = position;
 	sf::Vector2f prev = position;
 	pos.x += std::cos(direction * PI / 180) * speed;
-	pos.y += std::sin(direction * PI / 180) * speed;
 	setPosition(pos);
 
+	if (speed != 0)
+	{
+		//get collisions
+		if (detector != nullptr)
+		{
+			if (detector->isColliding(this, 1))
+			{
+				setPosition(prev);
+			}
+		}
+	}
+	pos.y += std::sin(direction * PI / 180) * speed;
+	setPosition(pos);
 	if (speed != 0)
 	{
 		//get collisions

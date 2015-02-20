@@ -19,8 +19,11 @@ private:
 	sf::RenderWindow* window;
 	std::vector<sf::Texture*> textures;
 	Player* player;
-	void loadTexture(std::string path);
 	CollisionDetector* detector;
+	void loadTextures();
+	void loadTexture(std::string path);
+	void loadLevel(int index);
+	
 };
 
 
