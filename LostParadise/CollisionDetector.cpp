@@ -10,12 +10,16 @@ CollisionDetector::~CollisionDetector()
 
 bool CollisionDetector::isColliding(GameObject* obj, int type)
 {
+	//obj on objekti, jolle törmäyksiä testataan
+	//type on objektin tyyppi, johon obj voi törmätä
+
 	std::vector<GameObject*>::iterator it;
 	it = objects->begin();
 
 	for (; it != objects->end(); it++)
 	{
-		if ((*it) != obj && (*it)->getType() == type)
+		//varmistetaan, ettei obj törmää itseensä ja että toinen objekti on oikeaa tyyppiä
+		if ((*it) != obj && (*it)->getType() == type) 
 		{
 			if (obj->getPosition().x + obj->getSize().x > (*it)->getPosition().x &&
 				obj->getPosition().y + obj->getSize().y > (*it)->getPosition().y &&

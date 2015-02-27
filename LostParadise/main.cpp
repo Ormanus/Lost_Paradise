@@ -3,13 +3,14 @@
 
 int main()
 {
-	//init level
+	//initialize level
 	Level level;
 
 	sf::Clock Clock;
 	sf::RenderWindow* window = level.getWindow();
-	while (window->isOpen())
+	while (window->isOpen()) //game loop
 	{
+		//siirrä nämä state manageriin:
 
 		sf::Time time = Clock.getElapsedTime();
 		Clock.restart();

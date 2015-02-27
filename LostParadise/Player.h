@@ -16,6 +16,10 @@ public:
 	void setDetector(CollisionDetector* detector){ this->detector = detector; }
 private:
 	int ammo;
+	/*
+	en keksinyt muuta keinoa testata törmäyksiä, kuin collision detector-luokan tekeminen
+	ja sen osoitteen jakaminen kaikille luokille, jotka sitä tarvitsevat...
+	*/
 	CollisionDetector* detector;
 };
 

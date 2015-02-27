@@ -19,8 +19,9 @@ Level::~Level()
 
 void Level::update(float deltaTime)
 {
+	//t‰m‰ metodi k‰skee kaikkia GameObjecteja p‰ivittym‰‰n
 	sf::Event event;
-	while (window->pollEvent(event))
+	while (window->pollEvent(event)) //ensin tarkistetaan eventit
 	{
 		if (event.type == sf::Event::Closed)
 		{
@@ -28,9 +29,11 @@ void Level::update(float deltaTime)
 		}
 		else
 		{
+			//keyboard eventit menee pelaajalle
 			player->eventUpdate(&event);
 		}
 	}
+	//muut ei tarvi eventtej‰ ja ne p‰ivitet‰‰n t‰ss‰:
 	std::vector<GameObject*>::iterator it;
 	for (it = objects.begin(); it != objects.end(); it++)
 	{
@@ -40,6 +43,7 @@ void Level::update(float deltaTime)
 
 void Level::draw()
 {
+	//piirt‰‰ kaiken
 	window->clear(sf::Color(32, 16, 8));
 	std::vector<GameObject*>::iterator it;
 	for (it = objects.begin(); it != objects.end(); it++)
@@ -51,10 +55,12 @@ void Level::draw()
 
 void Level::init()
 {
+	//luo ikkunan (kannattaa ehk‰ siirt‰‰ state manageriin?)
 	window = new sf::RenderWindow(sf::VideoMode(640, 480), "Lost Paradise");
 	window->setFramerateLimit(60);
 	window->setVerticalSyncEnabled(true);
 
+	//lataa kent‰n tekstuurit
 	loadTextures();
 
 	//create GameObjects

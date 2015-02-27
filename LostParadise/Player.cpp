@@ -42,6 +42,7 @@ void Player::update(float dt)
 		{
 			if (detector->isColliding(this, 1))
 			{
+				//jos pelaaja törmää, siirretään pelaajaa edelliseen sijaintiin
 				setPosition(prev);
 			}
 		}
@@ -50,7 +51,6 @@ void Player::update(float dt)
 
 void Player::eventUpdate(sf::Event* event)
 {
-	float xspeed = 0, yspeed = 0;
 	if (event->type == sf::Event::KeyPressed)
 	{
 		
