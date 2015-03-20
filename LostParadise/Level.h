@@ -18,6 +18,7 @@ private:
 	std::list<GameObject*> objects;
 	std::list<GameObject*> nonStaticObjects;
 	sf::RenderWindow* window;
+	sf::View view;
 	std::vector<sf::Texture*> textures;
 	Player* player;
 	void loadTextures();

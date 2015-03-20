@@ -42,6 +42,10 @@ void Level::draw()
 {
 	//piirtää kaiken
 	window->clear(sf::Color(32, 16, 8));
+
+	view.setCenter(player->getPosition());
+	window->setView(view);
+
 	for (GameObject* it : objects){
 		(*it).draw(window);
 	}
@@ -54,6 +58,9 @@ void Level::init()
 	window = new sf::RenderWindow(sf::VideoMode(640, 480), "Lost Paradise");
 	window->setFramerateLimit(60);
 	window->setVerticalSyncEnabled(true);
+
+	view = sf::View(sf::FloatRect(0, 0, 640/2, 480/2));
+	window->setView(view);
 
 	//lataa kentän tekstuurit
 	loadTextures();
