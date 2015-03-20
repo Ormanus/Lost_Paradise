@@ -21,19 +21,22 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		hspeed++;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-		vspeed--;
+		vspeed = -5;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		hspeed--;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-		vspeed++;
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	//	vspeed++;
 
+	vspeed += std::sin(direction) * speed;
+	vspeed++;
+	
 	if (hspeed == 0 && vspeed == 0)
 	{
 		speed = 0;
 	}
 	else 
 	{
-		speed = 1;
+		speed = sqrt(vspeed*vspeed + hspeed*hspeed);
 	}
 
 	//testataan mihin suuntaan pelaaja liikkuu
@@ -43,7 +46,7 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 	sf::Vector2f prev = position;
 
 	//liikkuminen x-akselilla
-	pos.x += std::cos(direction * PI / 180) * speed;
+	pos.x += hspeed;//std::cos(direction * PI / 180) * speed;
 	setPosition(pos);
 	if (speed != 0)
 	{
@@ -63,6 +66,7 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 		if (isColliding(1, objects))
 		{
 			setPosition(prev);
+			vspeed = 0;
 		}
 	}
 }
