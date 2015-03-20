@@ -12,7 +12,6 @@ public:
 	~Player();
 	void update(float dt) override;
 	void draw(sf::RenderWindow* target, sf::RenderStates states = sf::RenderStates::Default) const override;
-	void eventUpdate(sf::Event* event);
 	void setDetector(CollisionDetector* detector){ this->detector = detector; }
 private:
 	int ammo;

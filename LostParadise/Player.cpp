@@ -17,23 +17,33 @@ Player::~Player()
 
 void Player::update(float dt)
 {
+	float hspeed = 0, vspeed = 0;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		hspeed++;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		vspeed--;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		hspeed--;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		vspeed++;
+
+	if (hspeed == 0 && vspeed == 0)
+	{
+		speed = 0;
+	}
+	else 
+	{
+		speed = 1;
+	}
+
+	//testataan mihin suuntaan pelaaja liikkuu
+	direction = atan2f(vspeed, hspeed) * 180 / PI;
+
 	sf::Vector2f pos = position;
 	sf::Vector2f prev = position;
-	pos.x += std::cos(direction * PI / 180) * speed;
-	setPosition(pos);
 
-	if (speed != 0)
-	{
-		//get collisions
-		if (detector != nullptr)
-		{
-			if (detector->isColliding(this, 1))
-			{
-				setPosition(prev);
-			}
-		}
-	}
-	pos.y += std::sin(direction * PI / 180) * speed;
+	//liikkuminen x-akselilla
+	pos.x += std::cos(direction * PI / 180) * speed;
 	setPosition(pos);
 	if (speed != 0)
 	{
@@ -47,21 +57,22 @@ void Player::update(float dt)
 			}
 		}
 	}
-}
-
-void Player::eventUpdate(sf::Event* event)
-{
-	if (event->type == sf::Event::KeyPressed)
+	//liikkuminen y-akselilla
+	pos = position;
+	prev = position;
+	pos.y += std::sin(direction * PI / 180) * speed;
+	setPosition(pos);
+	if (speed != 0)
 	{
-		
-		if (event->key.code == sf::Keyboard::Up)
-			direction = -90;
-		if (event->key.code == sf::Keyboard::Down)
-			direction = 90;
-		if (event->key.code == sf::Keyboard::Right)
-			direction = 0;
-		if (event->key.code == sf::Keyboard::Left)
-			direction = 180;
+		//get collisions
+		if (detector != nullptr)
+		{
+			if (detector->isColliding(this, 1))
+			{
+				//jos pelaaja törmää, siirretään pelaajaa edelliseen sijaintiin
+				setPosition(prev);
+			}
+		}
 	}
 }
 

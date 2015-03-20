@@ -27,13 +27,9 @@ void Level::update(float deltaTime)
 		{
 			window->close();
 		}
-		else
-		{
-			//keyboard eventit menee pelaajalle
-			player->eventUpdate(&event);
-		}
 	}
-	//muut ei tarvi eventtej‰ ja ne p‰ivitet‰‰n t‰ss‰:
+	
+	//kaikki GameObjectit p‰ivitet‰‰n:
 	std::vector<GameObject*>::iterator it;
 	for (it = objects.begin(); it != objects.end(); it++)
 	{
