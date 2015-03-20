@@ -1,7 +1,7 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
-#include <vector>
+#include <list>
 #include "GameObject.h"
 #include "Player.h"
 
@@ -15,11 +15,11 @@ public:
 	void draw();
 	sf::RenderWindow* getWindow(){ return window; }
 private:
-	std::vector<GameObject*> objects;
+	std::list<GameObject*> objects;
+	std::list<GameObject*> nonStaticObjects;
 	sf::RenderWindow* window;
 	std::vector<sf::Texture*> textures;
 	Player* player;
-	CollisionDetector* detector;
 	void loadTextures();
 	void loadTexture(std::string path);
 	void loadLevel(int index);

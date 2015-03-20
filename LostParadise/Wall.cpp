@@ -17,7 +17,7 @@ Wall::~Wall()
 	delete sprite;
 }
 
-void Wall::update(float dt)
+void Wall::update(float dt, std::list<GameObject*>* objects)
 {
 
 }

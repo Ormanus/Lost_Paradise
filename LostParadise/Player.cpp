@@ -15,7 +15,7 @@ Player::~Player()
 	delete sprite;
 }
 
-void Player::update(float dt)
+void Player::update(float dt, std::list<GameObject*>* objects)
 {
 	float hspeed = 0, vspeed = 0;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -47,14 +47,10 @@ void Player::update(float dt)
 	setPosition(pos);
 	if (speed != 0)
 	{
-		//get collisions
-		if (detector != nullptr)
+		if (isColliding(1, objects))
 		{
-			if (detector->isColliding(this, 1))
-			{
-				//jos pelaaja törmää, siirretään pelaajaa edelliseen sijaintiin
-				setPosition(prev);
-			}
+			//jos pelaaja törmää, siirretään pelaajaa edelliseen sijaintiin
+			setPosition(prev);
 		}
 	}
 	//liikkuminen y-akselilla
@@ -64,14 +60,9 @@ void Player::update(float dt)
 	setPosition(pos);
 	if (speed != 0)
 	{
-		//get collisions
-		if (detector != nullptr)
+		if (isColliding(1, objects))
 		{
-			if (detector->isColliding(this, 1))
-			{
-				//jos pelaaja törmää, siirretään pelaajaa edelliseen sijaintiin
-				setPosition(prev);
-			}
+			setPosition(prev);
 		}
 	}
 }
@@ -80,4 +71,23 @@ void Player::draw(sf::RenderWindow* target, sf::RenderStates states) const
 {
 	sprite->setPosition(position);
 	target->draw(*sprite);
+}
+
+bool Player::isColliding(int objectType, std::list<GameObject*>* objects)
+{
+	for (GameObject* it : *objects)
+	{
+		if (it != this && it->getType() == objectType)
+		{
+			if (position.x + size.x > it->getPosition().x &&
+				position.y + size.y > it->getPosition().y &&
+				position.x < it->getPosition().x + it->getSize().x &&
+				position.y < it->getPosition().y + it->getSize().y
+				)
+			{
+				return true;
+			}
+		}
+	}
+	return false;
 }

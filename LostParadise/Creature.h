@@ -24,7 +24,7 @@ public:
 	void setDirection(int direction){ this->direction = direction; }
 
 protected:
-	int hp, attack, speed, direction;
+	float hp, attack, speed, direction;
 };
 
 #endif

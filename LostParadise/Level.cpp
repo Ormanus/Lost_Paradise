@@ -1,6 +1,5 @@
 #include "Level.h"
 #include "Wall.h"
-#include "CollisionDetector.h"
 #include <fstream>
 
 Level::Level()
@@ -20,8 +19,10 @@ Level::~Level()
 void Level::update(float deltaTime)
 {
 	//t‰m‰ metodi k‰skee kaikkia GameObjecteja p‰ivittym‰‰n
+
+	//tarkistetaan, onko ikkuna auki:
 	sf::Event event;
-	while (window->pollEvent(event)) //ensin tarkistetaan eventit
+	while (window->pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
 		{
@@ -29,11 +30,11 @@ void Level::update(float deltaTime)
 		}
 	}
 	
-	//kaikki GameObjectit p‰ivitet‰‰n:
-	std::vector<GameObject*>::iterator it;
-	for (it = objects.begin(); it != objects.end(); it++)
+	//Gameobjectit, joilla on update-metodissa jotain toimintaa, p‰ivitet‰‰n:
+
+	for (GameObject* it : nonStaticObjects)
 	{
-		(**it).update(deltaTime);
+		(*it).update(deltaTime, &objects);
 	}
 }
 
@@ -41,10 +42,8 @@ void Level::draw()
 {
 	//piirt‰‰ kaiken
 	window->clear(sf::Color(32, 16, 8));
-	std::vector<GameObject*>::iterator it;
-	for (it = objects.begin(); it != objects.end(); it++)
-	{
-		(**it).draw(window);
+	for (GameObject* it : objects){
+		(*it).draw(window);
 	}
 	window->display();
 }
@@ -61,16 +60,17 @@ void Level::init()
 
 	//create GameObjects
 	player = new Player();
-	detector = new CollisionDetector(&objects);
+	//detector = new CollisionDetector(&objects);
 	sf::Sprite* spr = new sf::Sprite(*textures[0]);
 	spr->setScale(1, 2);
 	player->setSprite( spr );
-	player->setDetector(detector);
+	//player->setDetector(detector);
 	objects.push_back(player);
+	nonStaticObjects.push_back(player);
 
 	loadLevel(0);
 
-	detector->setVector(&objects);
+	//detector->setVector(&objects);
 }
 
 void Level::loadTexture(std::string path)
@@ -118,9 +118,9 @@ void Level::loadLevel(int index)
 				inFile.read(&tile, sizeof(char));
 				if (tile != 0){
 					GameObject* obj = 0;
-					obj = new Wall(16, 16);
+					obj = new Wall(32, 32);
 					obj->setSprite(new sf::Sprite(*textures[tile]));
-					obj->setPosition(j*16 + 128, i*16);
+					obj->setPosition(j*32 + 128, i*32);
 					objects.push_back(obj);
 
 				}

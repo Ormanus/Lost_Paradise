@@ -2,6 +2,7 @@
 #define GAMEOBJECT_H
 
 #include <SFML\Graphics.hpp>
+#include <list>
 
 class GameObject
 {
@@ -15,7 +16,7 @@ public:
 	sf::Vector2f getPosition(){ return position; }
 	sf::Vector2f getSize(){ return size; }
 	int getType(){ return type; }
-	virtual void update(float dt) = 0;
+	virtual void update(float dt, std::list<GameObject*>* objects) = 0;
 	virtual void draw(sf::RenderWindow* target, sf::RenderStates states = sf::RenderStates::Default) const = 0;
 protected:
 	sf::Sprite* sprite;

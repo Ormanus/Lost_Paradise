@@ -25,7 +25,7 @@ void GameObject::setSprite(sf::Texture* texture)
 	sprite->setPosition(position);
 }
 
-void GameObject::update(float dt)
+void GameObject::update(float dt, std::list<GameObject*>* objects)
 {
 
 }
