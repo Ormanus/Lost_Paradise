@@ -24,7 +24,7 @@ private:
 	void loadTextures();
 	void loadTexture(std::string path);
 	void loadLevel(int index);
-	
+	int shootingTimer;
 };
 
 

@@ -18,7 +18,13 @@ public:
 	int getDirection(){ return direction; }
 
 	//set
-	void setHp(int hp){ this->hp = hp; }
+	void setHp(int hp){
+		this->hp = hp;
+		if (hp < 0)
+		{
+			//die
+		}
+	}
 	void setAttack(int attack){ this->attack = attack; }
 	void setSpeed(int speed){ this->speed = speed; }
 	void setDirection(int direction){ this->direction = direction; }

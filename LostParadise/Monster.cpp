@@ -143,6 +143,14 @@ void Monster::move(std::list<GameObject*>* objects)
 	{
 		//delete this object
 	}
+
+	std::list<GameObject*> playerlist;
+	playerlist.push_back(player);
+	if (isColliding(0, &playerlist))
+	{
+		player->setHp(player->getHp() - 1);
+		//restart level
+	}
 }
 
 void Monster::draw(sf::RenderWindow* target, sf::RenderStates states) const

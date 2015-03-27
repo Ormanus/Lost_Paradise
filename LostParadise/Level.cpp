@@ -2,6 +2,7 @@
 #include "Wall.h"
 #include <fstream>
 #include "Monster.h"
+#include "Bullet.h"
 
 Level::Level()
 {
@@ -43,6 +44,27 @@ void Level::update(float deltaTime)
 	for (GameObject* it : nonStaticObjects)
 	{
 		(*it).update(deltaTime, &objects);
+	}
+
+	//ampuminen on levelin updatessa pelaajan sijasta, koska paljon helpompaa...
+	if (shootingTimer < 0)
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+		{
+			float mouseX = sf::Mouse::getPosition(*window).x,
+				mouseY = sf::Mouse::getPosition(*window).y,
+				playerX = player->getPosition().x,
+				playerY = player->getPosition().y,
+				direction = atan2(mouseY - 640, mouseX - 400);
+			Bullet* b = new Bullet(player->getPosition().x, player->getPosition().y, direction);
+			objects.push_back(b);
+			nonStaticObjects.push_back(b);
+			shootingTimer = 60;
+		}
+	}
+	else
+	{
+		shootingTimer--;
 	}
 }
 
@@ -101,6 +123,7 @@ void Level::init()
 	nonStaticObjects.push_back(monster);
 
 	loadLevel(0);
+	shootingTimer = 60;
 }
 
 void Level::loadTexture(std::string path)
