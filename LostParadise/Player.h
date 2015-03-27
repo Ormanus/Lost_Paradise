@@ -13,7 +13,6 @@ public:
 	void draw(sf::RenderWindow* target, sf::RenderStates states = sf::RenderStates::Default) const override;
 private:
 	int ammo;
-	GameObject* isColliding(int objectType, std::list<GameObject*>* objects);
 };
 
 #endif

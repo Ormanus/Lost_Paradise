@@ -1,6 +1,7 @@
 #include "Level.h"
 #include "Wall.h"
 #include <fstream>
+#include "Monster.h"
 
 Level::Level()
 {
@@ -12,6 +13,13 @@ Level::~Level()
 	for (int i = 0; i < textures.size(); i++)
 	{
 		delete textures[i];
+		textures[i] = nullptr;
+	}
+
+	for (auto it : objects)
+	{
+		delete it;
+		it = nullptr;
 	}
 	delete window;
 }
@@ -43,7 +51,10 @@ void Level::draw()
 	//piirtää kaiken
 	window->clear(sf::Color(32, 16, 8));
 
-	view.setCenter(player->getPosition());
+	sf::Vector2f center = player->getPosition();
+	center.x += player->getSize().x/2;
+	center.y += player->getSize().y / 2;
+	view.setCenter(center);
 	window->setView(view);
 
 	for (GameObject* it : objects){
@@ -55,11 +66,11 @@ void Level::draw()
 void Level::init()
 {
 	//luo ikkunan (kannattaa ehkä siirtää state manageriin?)
-	window = new sf::RenderWindow(sf::VideoMode(640, 480), "Lost Paradise");
+	window = new sf::RenderWindow(sf::VideoMode(1280, 800), "Lost Paradise");
 	window->setFramerateLimit(60);
 	window->setVerticalSyncEnabled(true);
 
-	view = sf::View(sf::FloatRect(0, 0, 640/2, 480/2));
+	view = sf::View(sf::FloatRect(0, 0, 1280 / 2, 800 / 2));
 	window->setView(view);
 
 	//lataa kentän tekstuurit
@@ -67,13 +78,20 @@ void Level::init()
 
 	//create GameObjects
 	player = new Player();
-	//detector = new CollisionDetector(&objects);
+	player->setPosition(128, -64);
 	sf::Sprite* spr = new sf::Sprite(*textures[0]);
 	spr->setScale(1, 2);
 	player->setSprite( spr );
-	//player->setDetector(detector);
 	objects.push_back(player);
 	nonStaticObjects.push_back(player);
+
+	Monster* monster = new Monster();
+	monster->setPosition(256, -64);
+	sf::Sprite* spr2 = new sf::Sprite(*textures[2]);
+	spr2->setScale(0.5, 1);
+	monster->setSprite(spr2);
+	objects.push_back(monster);
+	nonStaticObjects.push_back(monster);
 
 	loadLevel(0);
 
@@ -112,26 +130,41 @@ void Level::loadTextures()
 void Level::loadLevel(int index)
 {
 	//open file
-	std::ifstream inFile("levels\\level-0.txt", std::ios::binary|std::ios::in);
+	//std::ifstream inFile("levels\\level-0.txt", std::ios::binary|std::ios::in);
 
-	if (inFile)
-	{
-		//level size = 32*32 tiles
-		for (int i = 0; i < 16; i++)
-		{
-			for (int j = 0; j < 16; j++)
-			{
-				char tile;
-				inFile.read(&tile, sizeof(char));
-				if (tile != 0){
-					GameObject* obj = 0;
-					obj = new Wall(32, 32);
-					obj->setSprite(new sf::Sprite(*textures[tile]));
-					obj->setPosition(j*32 + 128, i*32);
-					objects.push_back(obj);
+	//if (inFile)
+	//{
+	//	//level size = 32*32 tiles
+	//	for (int i = 0; i < 16; i++)
+	//	{
+	//		for (int j = 0; j < 16; j++)
+	//		{
+	//			char tile;
+	//			inFile.read(&tile, sizeof(char));
+	//			if (tile != 0){
+	//				GameObject* obj = 0;
+	//				obj = new Wall(32, 32);
+	//				obj->setSprite(new sf::Sprite(*textures[tile]));
+	//				obj->setPosition(j*32 + 128, i*32);
+	//				objects.push_back(obj);
 
-				}
-			}
-		}
-	}
+	//			}
+	//		}
+	//	}
+	//}
+
+	GameObject* obj = new Wall(512, 64);
+	obj->setSprite(new sf::Sprite(*textures[2]));
+	obj->setPosition(0, 64);
+	objects.push_back(obj);
+
+	obj = new Wall(64, 64);
+	obj->setSprite(new sf::Sprite(*textures[3]));
+	obj->setPosition(512-64, 0);
+	objects.push_back(obj);
+
+	obj = new Wall(32, 32);
+	obj->setSprite(new sf::Sprite(*textures[4]));
+	obj->setPosition(512-96, 32);
+	objects.push_back(obj);
 }

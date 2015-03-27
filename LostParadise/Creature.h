@@ -25,6 +25,7 @@ public:
 
 protected:
 	float hp, attack, speed, direction;
+	GameObject* isColliding(int objectType, std::list<GameObject*>* objects);
 };
 
 #endif

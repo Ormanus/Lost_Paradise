@@ -36,7 +36,16 @@ void Wall::setSprite(sf::Texture* texture){
 
 void Wall::draw(sf::RenderWindow* target, sf::RenderStates states) const
 {
-
+	//sf::Vector2f textureSize = (sf::Vector2f)sprite->getTexture()->getSize();
+	//for (unsigned i = 0; i < size.x / textureSize.x; i++)
+	//{
+	//	for (unsigned j = 0; j < size.y / textureSize.y; j++)
+	//	{
+	//		sf::Vector2f drawingPosition = position + sf::Vector2f(textureSize.x*i, textureSize.y*j);
+	//		sprite->setPosition(drawingPosition);
+	//		target->draw(*sprite);
+	//	}
+	//}
 	sprite->setPosition(position);
 	target->draw(*sprite);
 }
