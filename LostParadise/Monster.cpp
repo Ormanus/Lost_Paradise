@@ -51,15 +51,6 @@ void Monster::move(std::list<GameObject*>* objects)
 	{
 		hspeed = -2;
 	}
-	if (player->getPosition().y < position.y && onGround)
-	{
-		float dx = player->getPosition().x - position.x,
-			dy = player->getPosition().y - position.y;
-		if (sqrt(dx*dx+ dy*dy) < 100)
-		{
-			vspeed -= 10;
-		}
-	}
 	
 	vspeed += std::sin(direction) * speed;
 
@@ -86,7 +77,7 @@ void Monster::move(std::list<GameObject*>* objects)
 			setPosition(other->getPosition().x - getSize().x, pos.y);
 		}
 		hspeed = 0;
-		if (player->getPosition().y < position.y)
+		if (player->getPosition().y < position.y - 1)
 		{
 			//try to jump
 			if (onGround)
@@ -95,6 +86,16 @@ void Monster::move(std::list<GameObject*>* objects)
 				direction = atan2f(vspeed, hspeed);
 				speed = sqrt(vspeed*vspeed + hspeed*hspeed);
 			}
+		}
+	}
+
+	if (player->getPosition().y < position.y - 1 && onGround)
+	{
+		float dx = player->getPosition().x - position.x,
+			dy = player->getPosition().y - position.y;
+		if (sqrt(dx*dx + dy*dy) < 32)
+		{
+			vspeed = -10;
 		}
 	}
 
@@ -136,6 +137,11 @@ void Monster::move(std::list<GameObject*>* objects)
 
 		direction = atan2f(vspeed, hspeed);
 		speed = sqrt(vspeed*vspeed + hspeed*hspeed);
+	}
+
+	if (position.y > 1000)
+	{
+		//delete this object
 	}
 }
 

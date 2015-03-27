@@ -15,7 +15,6 @@ public:
 	void setSprite(sf::Sprite* sprite) override;
 	void setSprite(sf::Texture* texture) override;
 private:
-	//float width, height;
 };
 
 #endif

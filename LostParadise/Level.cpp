@@ -51,8 +51,14 @@ void Level::draw()
 	//piirtää kaiken
 	window->clear(sf::Color(32, 16, 8));
 
+	window->setView(window->getDefaultView());
+
+	sf::Sprite bg(*textures[16]);
+	bg.setScale(2, 2);
+	window->draw(bg);
+
 	sf::Vector2f center = player->getPosition();
-	center.x += player->getSize().x/2;
+	center.x += player->getSize().x / 2;
 	center.y += player->getSize().y / 2;
 	view.setCenter(center);
 	window->setView(view);
@@ -60,6 +66,7 @@ void Level::draw()
 	for (GameObject* it : objects){
 		(*it).draw(window);
 	}
+
 	window->display();
 }
 
@@ -87,15 +94,13 @@ void Level::init()
 
 	Monster* monster = new Monster();
 	monster->setPosition(256, -64);
-	sf::Sprite* spr2 = new sf::Sprite(*textures[2]);
+	sf::Sprite* spr2 = new sf::Sprite(*textures[7]);
 	spr2->setScale(0.5, 1);
 	monster->setSprite(spr2);
 	objects.push_back(monster);
 	nonStaticObjects.push_back(monster);
 
 	loadLevel(0);
-
-	//detector->setVector(&objects);
 }
 
 void Level::loadTexture(std::string path)
@@ -125,6 +130,7 @@ void Level::loadTextures()
 	loadTexture("sprites\\tiles.png");
 	loadTexture("sprites\\tiles_blue.png");
 	loadTexture("sprites\\rainbow.png");
+	loadTexture("sprites\\BG.png"); //16
 }
 
 void Level::loadLevel(int index)
@@ -167,4 +173,21 @@ void Level::loadLevel(int index)
 	obj->setSprite(new sf::Sprite(*textures[4]));
 	obj->setPosition(512-96, 32);
 	objects.push_back(obj);
+
+	obj = new Wall(256, 128);
+	obj->setSprite(new sf::Sprite(*textures[5]));
+	obj->setPosition(512 + 64, 0);
+	objects.push_back(obj);
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			obj = new Wall(64, 64);
+			obj->setSprite(new sf::Sprite(*textures[14]));
+			obj->setPosition(0-i*64, 64-j*64);
+			objects.push_back(obj);
+		}
+	}
+	
 }
