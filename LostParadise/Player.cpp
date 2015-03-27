@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <iostream>
 
 #define PI 3.14159265358979323846264338327950
 
@@ -24,11 +25,12 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 		vspeed = -5;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		hspeed--;
-	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-	//	vspeed++;
+	
+	sf::Vector2f pos = position;
+	sf::Vector2f prev = position;
 
-	vspeed += std::sin(direction) * speed;
-	vspeed++;
+	//add vertical speed to simulate gravity
+	vspeed += std::sin(direction) * speed; //add current vertical speed
 	
 	if (hspeed == 0 && vspeed == 0)
 	{
@@ -40,34 +42,64 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 	}
 
 	//testataan mihin suuntaan pelaaja liikkuu
-	direction = atan2f(vspeed, hspeed) * 180 / PI;
-
-	sf::Vector2f pos = position;
-	sf::Vector2f prev = position;
-
+	direction = atan2f(vspeed, hspeed);
 	//liikkuminen x-akselilla
-	pos.x += hspeed;//std::cos(direction * PI / 180) * speed;
+	pos.x += hspeed;
 	setPosition(pos);
-	if (speed != 0)
+	GameObject* other = isColliding(1, objects);
+	if (other != nullptr)
 	{
-		if (isColliding(1, objects))
+		std::cout << "x-collision";
+		//jos pelaaja törmää, siirretään pelaajaa seinän viereen
+		if (pos.x > other->getPosition().x)
 		{
-			//jos pelaaja törmää, siirretään pelaajaa edelliseen sijaintiin
-			setPosition(prev);
+			setPosition(other->getPosition().x + other->getSize().x, pos.y);
 		}
+		else
+		{
+			setPosition(other->getPosition().x - getSize().x, pos.y);
+		}
+		hspeed = 0;
 	}
 	//liikkuminen y-akselilla
 	pos = position;
 	prev = position;
-	pos.y += std::sin(direction * PI / 180) * speed;
+	pos.y += std::sin(direction) * speed;
 	setPosition(pos);
-	if (speed != 0)
+	other = isColliding(1, objects);
+	if (other != nullptr )
 	{
-		if (isColliding(1, objects))
+		std::cout << "y-collision\n";
+		//setPosition(prev);
+		if (pos.y > other->getPosition().y)
+		{
+			setPosition(pos.x, other->getPosition().y + other->getSize().y);
+		}
+		else
+		{
+			setPosition(pos.x, other->getPosition().y - getSize().y);
+		}
+		vspeed = 0;
+		direction = atan2f(vspeed, hspeed);
+	}
+	else
+	{
+		std::cout << "gravity\n";
+		prev = position;
+		//setPosition(pos);
+		if (isColliding(1, objects) != nullptr)
 		{
 			setPosition(prev);
-			vspeed = 0;
 		}
+		else
+		{
+			std::cout << "added vspeed\n";
+			vspeed++;
+		}
+			
+		direction = atan2f(vspeed, hspeed);
+		speed = sqrt(vspeed*vspeed + hspeed*hspeed);
+		std::cout << speed << "\n";
 	}
 }
 
@@ -77,7 +109,7 @@ void Player::draw(sf::RenderWindow* target, sf::RenderStates states) const
 	target->draw(*sprite);
 }
 
-bool Player::isColliding(int objectType, std::list<GameObject*>* objects)
+GameObject* Player::isColliding(int objectType, std::list<GameObject*>* objects)
 {
 	for (GameObject* it : *objects)
 	{
@@ -89,9 +121,9 @@ bool Player::isColliding(int objectType, std::list<GameObject*>* objects)
 				position.y < it->getPosition().y + it->getSize().y
 				)
 			{
-				return true;
+				return it;
 			}
 		}
 	}
-	return false;
+	return nullptr;
 }
