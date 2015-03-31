@@ -1,6 +1,8 @@
 #include "Monster.h"
 #include "player.h"
 
+#define PI 3.1415926535897932
+
 Monster::Monster()
 {
 	size.x = 32;
@@ -89,7 +91,7 @@ void Monster::move(std::list<GameObject*>* objects)
 		}
 	}
 
-	if (player->getPosition().y < position.y - 1 && onGround)
+	if (player->getPosition().y < position.y - 1 && onGround  && (player->getDirection() > PI || player->getDirection() < 0))
 	{
 		float dx = player->getPosition().x - position.x,
 			dy = player->getPosition().y - position.y;

@@ -9,6 +9,7 @@ Player::Player()
 	speed = 1;
 	size.x = 32;
 	size.y = 64;
+	ammo = 6;
 }
 
 Player::~Player()
@@ -29,7 +30,7 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 		if (isColliding(1, objects) != nullptr)
 		{
 			//std::cout << "UP\n";
-			vspeed = -10;
+			vspeed = -17;
 		}
 		position = prev;
 		//pos = position;

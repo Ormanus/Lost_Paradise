@@ -4,6 +4,8 @@
 #include "Monster.h"
 #include "Bullet.h"
 
+#include <iostream>
+
 Level::Level()
 {
 	init();
@@ -47,19 +49,22 @@ void Level::update(float deltaTime)
 	}
 
 	//ampuminen on levelin updatessa pelaajan sijasta, koska paljon helpompaa...
-	if (shootingTimer < 0)
+	if (shootingTimer < 0 && player->getAmmo() > 0)
 	{
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 		{
 			float mouseX = sf::Mouse::getPosition(*window).x,
 				mouseY = sf::Mouse::getPosition(*window).y,
-				playerX = player->getPosition().x,
-				playerY = player->getPosition().y,
+				//playerX = player->getPosition().x,
+				//playerY = player->getPosition().y,
 				direction = atan2(mouseY - 640, mouseX - 400);
-			Bullet* b = new Bullet(player->getPosition().x, player->getPosition().y, direction);
+			Bullet* b = new Bullet(player->getPosition().x + 16, player->getPosition().y + 32, direction);
 			objects.push_back(b);
 			nonStaticObjects.push_back(b);
-			shootingTimer = 60;
+			shootingTimer = 10;
+			player->shoot();
+			std::cout << "Mouse: " << mouseX - 640 << ", " << mouseY - 400 << "\n";
+			player->setSpeed(0);
 		}
 	}
 	else
