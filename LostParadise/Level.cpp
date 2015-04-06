@@ -130,6 +130,7 @@ void Level::loadTexture(std::string path)
 {
 	sf::Texture* texture = new sf::Texture();
 	texture->loadFromFile(path);
+	texture->setRepeated(true);
 	textures.push_back(texture);
 }
 
@@ -183,22 +184,22 @@ void Level::loadLevel(int index)
 	//}
 
 	GameObject* obj = new Wall(512, 64);
-	obj->setSprite(new sf::Sprite(*textures[2]));
+	obj->setSprite(textures[2]);
 	obj->setPosition(0, 64);
 	objects.push_back(obj);
 
 	obj = new Wall(64, 64);
-	obj->setSprite(new sf::Sprite(*textures[3]));
+	obj->setSprite(textures[3]);
 	obj->setPosition(512-64, 0);
 	objects.push_back(obj);
 
 	obj = new Wall(32, 32);
-	obj->setSprite(new sf::Sprite(*textures[4]));
+	obj->setSprite(textures[4]);
 	obj->setPosition(512-96, 32);
 	objects.push_back(obj);
 
 	obj = new Wall(256, 128);
-	obj->setSprite(new sf::Sprite(*textures[5]));
+	obj->setSprite(textures[5]);
 	obj->setPosition(512 + 64, 0);
 	objects.push_back(obj);
 
@@ -207,7 +208,7 @@ void Level::loadLevel(int index)
 		for (int j = 0; j < 5; j++)
 		{
 			obj = new Wall(64, 64);
-			obj->setSprite(new sf::Sprite(*textures[14]));
+			obj->setSprite(textures[14]);
 			obj->setPosition(0-i*64, 64-j*64);
 			objects.push_back(obj);
 		}

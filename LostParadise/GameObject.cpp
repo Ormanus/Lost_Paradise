@@ -22,6 +22,7 @@ void GameObject::setSprite(sf::Sprite* sprite)
 void GameObject::setSprite(sf::Texture* texture)
 {
 	sprite = new sf::Sprite(*texture);
+	sprite->setTextureRect(sf::IntRect(0, 0, size.x, size.y));
 	sprite->setPosition(position);
 }
 
