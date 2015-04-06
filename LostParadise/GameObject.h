@@ -13,6 +13,7 @@ public:
 	virtual void setSprite(sf::Texture* texture);
 	void setPosition(sf::Vector2f pos){ position = pos; }
 	void setPosition(float x, float y){ position.x = x; position.y = y; }
+	void setSize(sf::Vector2f size){ this->size = size; }
 	sf::Vector2f getPosition(){ return position; }
 	sf::Vector2f getSize(){ return size; }
 	int getType(){ return type; }

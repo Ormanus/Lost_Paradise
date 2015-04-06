@@ -2,7 +2,9 @@
 
 Wall::Wall()
 {
-	Wall(64, 64);
+	size.x = 64;
+	size.y = 64;
+	type = 1;
 }
 
 Wall::Wall(float width, float height)
