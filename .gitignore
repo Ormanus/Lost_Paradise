@@ -48,3 +48,10 @@ Temporary Items
 #file extensions
 *.suo
 *.sdf
+*.obj
+*.pdb
+*.suo
+*.tlog
+*.pdb
+*.log
+LostParadise/Debug/LostParadise.exe

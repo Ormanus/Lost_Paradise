@@ -111,13 +111,11 @@ void Level::init()
 	loadTextures();
 
 	//create GameObjects
-	player = new Player();
-	player->setPosition(128, -64);
-	sf::Sprite* spr = new sf::Sprite(*textures[0]);
-	spr->setScale(1, 2);
-	player->setSprite( spr );
-	objects.push_back(player);
-	nonStaticObjects.push_back(player);
+	//player = new Player();
+	//player->setPosition(128, -64);
+	//sf::Sprite* spr = new sf::Sprite(*textures[0]);
+	//spr->setScale(1, 2);
+	//player->setSprite(spr);
 
 	Monster* monster = new Monster();
 	monster->setPosition(256, -64);
@@ -128,13 +126,25 @@ void Level::init()
 	nonStaticObjects.push_back(monster);
 
 	loadLevel(0);
-	shootingTimer = 60;
+
+	if (player != nullptr)
+	{
+		sf::Sprite* spr = new sf::Sprite(*textures[0]);
+		spr->setScale(1, 2);
+		player->setSprite(spr);
+		shootingTimer = 60;
+	}
+	else
+	{
+		exit(1);
+	}
 }
 
 void Level::loadTexture(std::string path)
 {
 	sf::Texture* texture = new sf::Texture();
 	texture->loadFromFile(path);
+	texture->setRepeated(true);
 	textures.push_back(texture);
 }
 
@@ -161,61 +171,59 @@ void Level::loadTextures()
 	loadTexture("sprites\\BG.png"); //16
 }
 
+GameObject* Level::addObject(float x, float y, int type)
+{
+	GameObject* obj = nullptr;
+	switch (type)
+	{
+	case 0: 
+		if (player == nullptr)
+		{
+			obj = new Player();
+			nonStaticObjects.push_back(obj);
+		}
+		break;
+	case 1:
+		obj = new Wall();
+	}
+	if (obj != nullptr)
+	{
+		obj->setPosition(x, y);
+		objects.push_back(obj);
+	}
+	return obj;
+}
+
 void Level::loadLevel(int index)
 {
-	//open file
-	//std::ifstream inFile("levels\\level-0.txt", std::ios::binary|std::ios::in);
-
-	//if (inFile)
-	//{
-	//	//level size = 32*32 tiles
-	//	for (int i = 0; i < 16; i++)
-	//	{
-	//		for (int j = 0; j < 16; j++)
-	//		{
-	//			char tile;
-	//			inFile.read(&tile, sizeof(char));
-	//			if (tile != 0){
-	//				GameObject* obj = 0;
-	//				obj = new Wall(32, 32);
-	//				obj->setSprite(new sf::Sprite(*textures[tile]));
-	//				obj->setPosition(j*32 + 128, i*32);
-	//				objects.push_back(obj);
-
-	//			}
-	//		}
-	//	}
-	//}
-
-	GameObject* obj = new Wall(512, 64);
-	obj->setSprite(new sf::Sprite(*textures[2]));
-	obj->setPosition(0, 64);
-	objects.push_back(obj);
-
-	obj = new Wall(64, 64);
-	obj->setSprite(new sf::Sprite(*textures[3]));
-	obj->setPosition(512-64, 0);
-	objects.push_back(obj);
-
-	obj = new Wall(32, 32);
-	obj->setSprite(new sf::Sprite(*textures[4]));
-	obj->setPosition(512-96, 32);
-	objects.push_back(obj);
-
-	obj = new Wall(256, 128);
-	obj->setSprite(new sf::Sprite(*textures[5]));
-	obj->setPosition(512 + 64, 0);
-	objects.push_back(obj);
-
-	for (int i = 0; i < 4; i++)
+	std::ifstream inFile("levels\\level-2.txt", std::ios::binary | std::ios::in);
+	if (inFile)
 	{
-		for (int j = 0; j < 5; j++)
+		while (!inFile.eof())
 		{
-			obj = new Wall(64, 64);
-			obj->setSprite(new sf::Sprite(*textures[14]));
-			obj->setPosition(0-i*64, 64-j*64);
-			objects.push_back(obj);
+			int x, y, w, h, type, subtype;
+			GameObject* obj = nullptr;
+
+			inFile.read((char*)&type, sizeof(int));
+			inFile.read((char*)&x, sizeof(int));
+			inFile.read((char*)&y, sizeof(int));
+
+			obj = addObject(x, y, type);
+
+			switch (type)
+			{
+			case 0: //player
+				if (player == nullptr)
+				player = (Player*)obj;
+				break;
+			case 1: //wall
+				inFile.read((char*)&w, sizeof(int));
+				inFile.read((char*)&h, sizeof(int));
+				obj->setSize(sf::Vector2f(w, h));
+				inFile.read((char*)&subtype, sizeof(int));
+				obj->setSprite(textures[subtype]);
+				break;
+			}
 		}
 	}
-	
 }
