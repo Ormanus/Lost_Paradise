@@ -55,3 +55,6 @@ Temporary Items
 *.pdb
 *.log
 LostParadise/Debug/LostParadise.exe
+*.obj
+*.log
+*.tlog
