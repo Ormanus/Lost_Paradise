@@ -53,11 +53,11 @@ void Level::update(float deltaTime)
 	{
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 		{
-			float mouseX = sf::Mouse::getPosition(*window).x,
-				mouseY = sf::Mouse::getPosition(*window).y,
-				//playerX = player->getPosition().x,
-				//playerY = player->getPosition().y,
-				direction = atan2(mouseY - 640, mouseX - 400);
+			sf::Vector2i mouseWindow = sf::Mouse::getPosition(*window);
+			sf::Vector2f mouseWorld = window->mapPixelToCoords(mouseWindow);
+			float mouseX = mouseWorld.x,
+				mouseY = mouseWorld.y;
+			float direction = atan2(mouseY - player->getPosition().y - 32, mouseX - player->getPosition().x - 16);
 			Bullet* b = new Bullet(player->getPosition().x + 16, player->getPosition().y + 32, direction);
 			objects.push_back(b);
 			nonStaticObjects.push_back(b);
