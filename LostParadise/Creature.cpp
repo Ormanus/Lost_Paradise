@@ -1,4 +1,5 @@
 #include "Creature.h"
+#include "Wall.h"
 
 Creature::Creature()
 {
@@ -20,7 +21,17 @@ GameObject* Creature::isColliding(int objectType, std::list<GameObject*>* object
 				position.y < it->getPosition().y + it->getSize().y
 				)
 			{
-				return it;
+				if (objectType == 1)
+				{
+					if (((Wall*)it)->isSolid())
+					{
+						return it;
+					}
+				}
+				else
+				{
+					return it;
+				}
 			}
 		}
 	}
