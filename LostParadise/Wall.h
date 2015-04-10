@@ -14,7 +14,9 @@ public:
 	void draw(sf::RenderWindow* target, sf::RenderStates states) const override;
 	void setSprite(sf::Sprite* sprite) override;
 	void setSprite(sf::Texture* texture) override;
+	bool isSolid(){ return solid; }
 private:
+	bool solid = true;
 };
 
 #endif

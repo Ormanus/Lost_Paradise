@@ -29,8 +29,7 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 		position.y++;
 		if (isColliding(1, objects) != nullptr)
 		{
-			//std::cout << "UP\n";
-			vspeed = -17;
+			vspeed = -10;
 		}
 		position = prev;
 		//pos = position;

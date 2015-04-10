@@ -6,6 +6,7 @@ GameObject::GameObject()
 
 GameObject::~GameObject()
 {
+	
 }
 
 void GameObject::draw(sf::RenderWindow* target, sf::RenderStates states) const

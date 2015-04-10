@@ -25,6 +25,7 @@ private:
 	void loadTexture(std::string path);
 	void loadLevel(int index);
 	GameObject* addObject(float x, float y, int type);
+	void removeObject(GameObject* obj);
 	int shootingTimer;
 };
 

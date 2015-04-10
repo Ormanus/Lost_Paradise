@@ -12,6 +12,7 @@ Monster::Monster()
 
 Monster::~Monster()
 {
+
 }
 
 void Monster::update(float dt, std::list<GameObject*>* objects)
@@ -123,13 +124,6 @@ void Monster::move(std::list<GameObject*>* objects)
 	}
 	else
 	{
-		//prev = position;
-		////setPosition(pos);
-		//if (isColliding(1, objects) != nullptr)
-		//{
-		//	setPosition(prev);
-		//}
-		//else
 		if (!onGround)
 		{
 			vspeed += 0.5;
@@ -143,7 +137,7 @@ void Monster::move(std::list<GameObject*>* objects)
 
 	if (position.y > 1000)
 	{
-		//delete this object
+		destroy();
 	}
 
 	std::list<GameObject*> playerlist;

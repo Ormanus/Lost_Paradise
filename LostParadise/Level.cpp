@@ -3,8 +3,16 @@
 #include <fstream>
 #include "Monster.h"
 #include "Bullet.h"
-
 #include <iostream>
+#include <algorithm>
+
+enum ObjectTypes
+{
+	TPlayer,
+	TWall,
+	TMutant,
+	TItem
+};
 
 Level::Level()
 {
@@ -41,12 +49,23 @@ void Level::update(float deltaTime)
 		}
 	}
 	
-	//Gameobjectit, joilla on update-metodissa jotain toimintaa, p‰ivitet‰‰n:
+	std::list<GameObject*> removeList;
 
+	//Gameobjectit, joilla on update-metodissa jotain toimintaa, p‰ivitet‰‰n:
 	for (GameObject* it : nonStaticObjects)
 	{
 		(*it).update(deltaTime, &objects);
+		if (it->isDestroyed())
+		{
+			removeList.push_back(it);
+		}
 	}
+
+	for (auto it : removeList)
+	{
+		removeObject(it);
+	}
+
 
 	//ampuminen on levelin updatessa pelaajan sijasta, koska paljon helpompaa...
 	if (shootingTimer < 0 && player->getAmmo() > 0)
@@ -64,7 +83,6 @@ void Level::update(float deltaTime)
 			shootingTimer = 10;
 			player->shoot();
 			std::cout << "Mouse: " << mouseX - 640 << ", " << mouseY - 400 << "\n";
-			player->setSpeed(0);
 		}
 	}
 	else
@@ -186,6 +204,7 @@ GameObject* Level::addObject(float x, float y, int type)
 	case 1:
 		obj = new Wall();
 	}
+
 	if (obj != nullptr)
 	{
 		obj->setPosition(x, y);
@@ -194,9 +213,32 @@ GameObject* Level::addObject(float x, float y, int type)
 	return obj;
 }
 
+void Level::removeObject(GameObject* obj)
+{
+	std::list<GameObject*>::const_iterator it;
+	
+	it = std::find(objects.begin(), objects.end(), obj);
+	if (it != objects.end())
+	{
+		std::cout << "erased from objects\n";
+		objects.erase(it);		
+	}
+
+	it = std::find(nonStaticObjects.begin(), nonStaticObjects.end(), obj);
+	if (it != nonStaticObjects.end())
+	{
+		std::cout << "erased from nonStatics\n";
+		nonStaticObjects.erase(it);
+	}
+
+	std::cout << "deleting object...\n";
+	delete obj;
+	//delete obj;
+}
+
 void Level::loadLevel(int index)
 {
-	std::ifstream inFile("levels\\level-2.txt", std::ios::binary | std::ios::in);
+	std::ifstream inFile("levels\\test.txt", std::ios::binary | std::ios::in);
 	if (inFile)
 	{
 		while (!inFile.eof())
@@ -212,16 +254,23 @@ void Level::loadLevel(int index)
 
 			switch (type)
 			{
-			case 0: //player
+			case TPlayer:
 				if (player == nullptr)
 				player = (Player*)obj;
 				break;
-			case 1: //wall
+			case TWall:
 				inFile.read((char*)&w, sizeof(int));
 				inFile.read((char*)&h, sizeof(int));
 				obj->setSize(sf::Vector2f(w, h));
 				inFile.read((char*)&subtype, sizeof(int));
 				obj->setSprite(textures[subtype]);
+				break;
+			case TMutant:
+				break;
+			case TItem:
+				break;
+			default:
+				//FAIL!
 				break;
 			}
 		}
