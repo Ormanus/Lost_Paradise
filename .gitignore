@@ -58,3 +58,5 @@ LostParadise/Debug/LostParadise.exe
 *.obj
 *.log
 *.tlog
+*.obj
+LostParadise/Debug/

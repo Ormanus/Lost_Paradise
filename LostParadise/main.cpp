@@ -1,23 +1,30 @@
 #include "SFML\Graphics.hpp"
-#include "Level.h"
+#include "State_MENU.h"
+#include "Game.h"
 
 int main()
 {
+	Game game;
+
+	game.pushState(new State_MENU(&game));
+	game.gameLoop();
+
+
 	//initialize level
-	Level level;
+	//Level level;
 
-	sf::Clock Clock;
-	sf::RenderWindow* window = level.getWindow();
-	while (window->isOpen()) //game loop
-	{
-		//siirrä nämä state manageriin:
+	//sf::Clock Clock;
+	//sf::RenderWindow* window = level.getWindow();
+	//while (window->isOpen()) //game loop
+	//{
+	//	//siirrä nämä state manageriin:
 
-		sf::Time time = Clock.getElapsedTime();
-		Clock.restart();
-		float dt = time.asMilliseconds()/10;
-		level.update(dt);
-		level.draw();
-	}
+	//	sf::Time time = Clock.getElapsedTime();
+	//	Clock.restart();
+	//	float dt = time.asMilliseconds()/10;
+	//	level.update(dt);
+	//	level.draw();
+	//}
 
 	return 0;
 }

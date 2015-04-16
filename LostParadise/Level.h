@@ -4,11 +4,12 @@
 #include <list>
 #include "GameObject.h"
 #include "Player.h"
+#include "Game.h"
 
 class Level
 {
 public:
-	Level();
+	Level(Game* gamePtr);
 	~Level();
 	void init();
 	void update(float deltaTime);
@@ -27,6 +28,7 @@ private:
 	GameObject* addObject(float x, float y, int type);
 	void removeObject(GameObject* obj);
 	int shootingTimer;
+	Game* game;
 };
 
 

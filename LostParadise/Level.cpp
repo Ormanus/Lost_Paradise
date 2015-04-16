@@ -14,9 +14,11 @@ enum ObjectTypes
 	TItem
 };
 
-Level::Level()
+Level::Level(Game* gamePtr)
 {
+	game = gamePtr;
 	init();
+	
 }
 
 Level::~Level()
@@ -118,12 +120,14 @@ void Level::draw()
 void Level::init()
 {
 	//luo ikkunan (kannattaa ehkä siirtää state manageriin?)
-	window = new sf::RenderWindow(sf::VideoMode(1280, 800), "Lost Paradise");
-	window->setFramerateLimit(60);
-	window->setVerticalSyncEnabled(true);
+	//window = new sf::RenderWindow(sf::VideoMode(1280, 800), "Lost Paradise");
+	//window->setFramerateLimit(60);
+	//window->setVerticalSyncEnabled(true);
 
-	view = sf::View(sf::FloatRect(0, 0, 1280 / 2, 800 / 2));
-	window->setView(view);
+	//view = sf::View(sf::FloatRect(0, 0, 1280 / 2, 800 / 2));
+	//window->setView(view);
+
+	window = &(game->window);
 
 	//lataa kentän tekstuurit
 	loadTextures();
