@@ -12,7 +12,6 @@ void State_GAME::draw(const float dt)
 {
 	this->game->window.clear(sf::Color::White);
 
-	//Ors
 	level->draw();
 
 	return;
@@ -20,7 +19,6 @@ void State_GAME::draw(const float dt)
 
 void State_GAME::update(const float dt)
 {
-	//Ors
 	level->update(dt);
 	return;
 }
@@ -70,7 +68,7 @@ State_GAME::State_GAME(Game* game)
 	this->guiView.setCenter(pos);
 	this->gameView.setCenter(pos);
 
-	//Ors
+	//TODO: lis‰‰ destruktoriin
 	level = new Level(game);
 }
 

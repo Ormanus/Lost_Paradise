@@ -22,7 +22,6 @@ private:
 	sf::View gameView;
 	sf::View guiView;
 
-	//Ors
 	Level* level;
 
 	void pause();

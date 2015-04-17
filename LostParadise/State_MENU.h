@@ -9,6 +9,7 @@
 class State_MENU : public GameState
 {
 public:
+	State_MENU();
 	virtual void draw(const float dt);
 	virtual void update(const float dt);
 	virtual void handleInput();
@@ -17,6 +18,8 @@ public:
 
 private:
 	sf::View view;
+
+	sf::Texture MenuBG;
 
 	void loadgame();
 	void options();

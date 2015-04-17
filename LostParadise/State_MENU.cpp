@@ -13,6 +13,11 @@ State_MENU::State_MENU(Game* game)
 {	
 	this->game = game;
 	sf::Vector2f pos = sf::Vector2f(this->game->window.getSize());
+
+	if (!MenuBG.loadFromFile("Sprites/MainMenu.png"))
+	{
+		std::cout << "Virhe taustaa ladattaessa!" << std::endl;
+	}
 }
 
 void State_MENU::draw(const float dt)
@@ -20,11 +25,6 @@ void State_MENU::draw(const float dt)
 	this->game->window.setView(this->view);
 	this->game->window.clear(sf::Color::Black);
 
-	sf::Texture MenuBG;
-	if (!MenuBG.loadFromFile("Sprites/MainMenu.png"))
-	{
-		std::cout << "Virhe taustaa ladattaessa!" << std::endl;
-	}
 	sf::Sprite sprite;
 	sprite.setTexture(MenuBG);
 	this->game->window.draw(sprite);
