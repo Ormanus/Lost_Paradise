@@ -74,20 +74,35 @@
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Creature.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameState_GAME.cpp" />
+    <ClCompile Include="GameState_MENU.cpp" />
+    <ClCompile Include="GameState_PAUSE.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="State_GAME.cpp" />
+    <ClCompile Include="State_MENU.cpp" />
+    <ClCompile Include="State_OPTIONS.cpp" />
+    <ClCompile Include="State_PAUSE.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Creature.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="State_GAME.h" />
+    <ClInclude Include="State_MENU.h" />
+    <ClInclude Include="State_OPTIONS.h" />
+    <ClInclude Include="State_PAUSE.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>

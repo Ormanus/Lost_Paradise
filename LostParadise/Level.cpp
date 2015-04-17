@@ -14,9 +14,11 @@ enum ObjectTypes
 	TItem
 };
 
-Level::Level()
+Level::Level(Game* gamePtr)
 {
+	game = gamePtr;
 	init();
+	
 }
 
 Level::~Level()
@@ -61,6 +63,7 @@ void Level::update(float deltaTime)
 		}
 	}
 
+	//poistettavat objektit poistetaan
 	for (auto it : removeList)
 	{
 		removeObject(it);
@@ -111,29 +114,16 @@ void Level::draw()
 	for (GameObject* it : objects){
 		(*it).draw(window);
 	}
-
-	window->display();
 }
 
 void Level::init()
 {
-	//luo ikkunan (kannattaa ehkä siirtää state manageriin?)
-	window = new sf::RenderWindow(sf::VideoMode(1280, 800), "Lost Paradise");
-	window->setFramerateLimit(60);
-	window->setVerticalSyncEnabled(true);
-
 	view = sf::View(sf::FloatRect(0, 0, 1280 / 2, 800 / 2));
-	window->setView(view);
+
+	window = &(game->window);
 
 	//lataa kentän tekstuurit
 	loadTextures();
-
-	//create GameObjects
-	//player = new Player();
-	//player->setPosition(128, -64);
-	//sf::Sprite* spr = new sf::Sprite(*textures[0]);
-	//spr->setScale(1, 2);
-	//player->setSprite(spr);
 
 	Monster* monster = new Monster();
 	monster->setPosition(256, -64);
@@ -233,7 +223,6 @@ void Level::removeObject(GameObject* obj)
 
 	std::cout << "deleting object...\n";
 	delete obj;
-	//delete obj;
 }
 
 void Level::loadLevel(int index)
