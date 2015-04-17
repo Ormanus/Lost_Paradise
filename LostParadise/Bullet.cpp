@@ -35,7 +35,7 @@ void Bullet::update(float dt, std::list<GameObject*>* objects)
 		}
 		if (other->getType() != 0) //player cannot shoot himself
 		{
-			//destroy this bullet
+			destroy();
 		}
 	}
 }

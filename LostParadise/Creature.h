@@ -22,7 +22,7 @@ public:
 		this->hp = hp;
 		if (hp < 0)
 		{
-			//die
+			destroy();
 		}
 	}
 	void setAttack(int attack){ this->attack = attack; }

@@ -126,7 +126,7 @@ void Level::init()
 	loadTextures();
 
 	Monster* monster = new Monster();
-	monster->setPosition(256, -64);
+	monster->setPosition(512, -64);
 	sf::Sprite* spr2 = new sf::Sprite(*textures[7]);
 	spr2->setScale(0.5, 1);
 	monster->setSprite(spr2);

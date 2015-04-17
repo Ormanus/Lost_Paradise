@@ -135,7 +135,8 @@ void Monster::move(std::list<GameObject*>* objects)
 		speed = sqrt(vspeed*vspeed + hspeed*hspeed);
 	}
 
-	if (position.y > 1000)
+	//jos mutantti tippuu tarpeeksi alas...
+	if (position.y > 10000)
 	{
 		destroy();
 	}
@@ -144,7 +145,7 @@ void Monster::move(std::list<GameObject*>* objects)
 	playerlist.push_back(player);
 	if (isColliding(0, &playerlist))
 	{
-		player->setHp(player->getHp() - 1);
+		//player->setHp(player->getHp() - 1);
 		//restart level
 	}
 }
