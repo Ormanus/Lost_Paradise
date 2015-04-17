@@ -22,7 +22,7 @@ State_MENU::State_MENU(Game* game)
 
 void State_MENU::draw(const float dt)
 {
-	this->game->window.setView(this->view);
+	//this->game->window.setView(this->view);
 	this->game->window.clear(sf::Color::Black);
 
 	sf::Sprite sprite;
@@ -59,7 +59,7 @@ void State_MENU::handleInput()
 			case sf::Event::KeyPressed:
 			{
 				if (event.key.code == sf::Keyboard::Escape) this->game->window.close();
-				else if (event.key.code == sf::Keyboard::Space) this->loadgame();
+				else if (event.key.code == sf::Keyboard::Return) this->loadgame();
 				else if (event.key.code == sf::Keyboard::O) this->options();
 				break;
 			}

@@ -18,6 +18,8 @@ public:
 private:
 	sf::View view;
 
+	sf::Texture OptionsBG;
+
 	void mainmenu();
 };
 #endif

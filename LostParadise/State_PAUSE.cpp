@@ -12,13 +12,20 @@ State_PAUSE::State_PAUSE(Game* game)
 {
 	this->game = game;
 	sf::Vector2f pos = sf::Vector2f(this->game->window.getSize());
+
+	if (!PauseBG.loadFromFile("Sprites/Pause.png"))
+	{
+		std::cout << "Virhe taustaa ladattaessa!" << std::endl;
+	}
 }
 
 void State_PAUSE::draw(const float dt)
 {
-	this->game->window.setView(this->pauseView);
-	this->game->window.clear(sf::Color::Blue);
-	//this->game->window.draw(this->game->background);
+	this->game->window.setView(this->game->window.getDefaultView());
+	this->game->window.clear(sf::Color::Transparent);
+	sf::Sprite sprite;
+	sprite.setTexture(PauseBG);
+	this->game->window.draw(sprite);
 
 	return;
 }
@@ -44,7 +51,7 @@ void State_PAUSE::handleInput()
 		//Ikkunan kokoa muutetaan
 		case sf::Event::Resized:
 		{
-			this->pauseView.setSize(event.size.width, event.size.height);
+			this->view.setSize(event.size.width, event.size.height);
 			break;
 		}
 		//Nappuloita painellaan
@@ -55,7 +62,7 @@ void State_PAUSE::handleInput()
 				this->mainmenu();
 				active = false;
 			}
-			else if (event.key.code == sf::Keyboard::Space)
+			else if (event.key.code == sf::Keyboard::P)
 			{
 				this->continuegame();
 				active = false;

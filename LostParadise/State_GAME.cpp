@@ -47,7 +47,7 @@ void State_GAME::handleInput()
 		//Nappuloita painelllaan
 		case sf::Event::KeyPressed:
 		{
-			if (event.key.code == sf::Keyboard::Escape) this->pause();
+			if (event.key.code == sf::Keyboard::P) this->pause();
 			break;
 		}
 

@@ -16,10 +16,12 @@ public:
 	State_PAUSE(Game* game);
 
 private:
-	sf::View pauseView;
+	sf::View view;
 	bool active = true;
 
 	void mainmenu();
 	void continuegame();
+
+	sf::Texture PauseBG;
 };
 #endif

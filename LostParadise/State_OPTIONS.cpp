@@ -11,13 +11,20 @@ State_OPTIONS::State_OPTIONS(Game* game)
 {
 	this->game = game;
 	sf::Vector2f pos = sf::Vector2f(this->game->window.getSize());
+
+	if (!OptionsBG.loadFromFile("Sprites/Options.png"))
+	{
+		std::cout << "Virhe taustaa ladattaessa!" << std::endl;
+	}
 }
 
 void State_OPTIONS::draw(const float dt)
 {
-	this->game->window.setView(this->view);
+	//this->game->window.setView(this->view);
 	this->game->window.clear(sf::Color::Yellow);
-	//this->game->window.draw(this->game->background);
+	sf::Sprite sprite;
+	sprite.setTexture(OptionsBG);
+	this->game->window.draw(sprite);
 
 	return;
 }
