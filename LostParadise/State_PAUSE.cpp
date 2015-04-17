@@ -72,8 +72,9 @@ void State_PAUSE::handleInput()
 void State_PAUSE::mainmenu()
 {
 	//this->game->pushState(new State_MENU(this->game));
-	this->game->popState();
-	this->game->popState();
+	Game* g = this->game;
+	g->popState();
+	g->popState();
 	return;
 }
 
