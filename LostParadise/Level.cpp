@@ -1,17 +1,20 @@
 #include "Level.h"
 #include "Wall.h"
+#include "Goal.h"
 #include <fstream>
 #include "Monster.h"
 #include "Bullet.h"
 #include <iostream>
 #include <algorithm>
+#include "State_GAME.h"
 
 enum ObjectTypes
 {
 	TPlayer,
 	TWall,
 	TMutant,
-	TItem
+	TItem,
+	TGoal
 };
 
 Level::Level(Game* gamePtr)
@@ -63,13 +66,6 @@ void Level::update(float deltaTime)
 		}
 	}
 
-	//poistettavat objektit poistetaan
-	for (auto it : removeList)
-	{
-		removeObject(it);
-	}
-
-
 	//ampuminen on levelin updatessa pelaajan sijasta, koska paljon helpompaa...
 	if (shootingTimer < 0 && player->getAmmo() > 0)
 	{
@@ -91,6 +87,20 @@ void Level::update(float deltaTime)
 	else
 	{
 		shootingTimer--;
+	}
+
+	//poistettavat objektit poistetaan
+	for (auto it : removeList)
+	{
+		if (it == player)
+		{
+			this->game->changeState(new State_GAME(this->game));
+			break;
+		}
+		else
+		{
+			removeObject(it);
+		}
 	}
 }
 
@@ -193,6 +203,10 @@ GameObject* Level::addObject(float x, float y, int type)
 		break;
 	case 1:
 		obj = new Wall();
+		break;
+	case 4:
+		obj = new Goal();
+		break;
 	}
 
 	if (obj != nullptr)
@@ -206,12 +220,12 @@ GameObject* Level::addObject(float x, float y, int type)
 void Level::removeObject(GameObject* obj)
 {
 	std::list<GameObject*>::const_iterator it;
-	
+
 	it = std::find(objects.begin(), objects.end(), obj);
 	if (it != objects.end())
 	{
 		std::cout << "erased from objects\n";
-		objects.erase(it);		
+		objects.erase(it);
 	}
 
 	it = std::find(nonStaticObjects.begin(), nonStaticObjects.end(), obj);
@@ -253,10 +267,19 @@ void Level::loadLevel(int index)
 				obj->setSize(sf::Vector2f(w, h));
 				inFile.read((char*)&subtype, sizeof(int));
 				obj->setSprite(textures[subtype]);
+				if (subtype == 12)
+				{
+					objects.pop_back(); //delete wall. TODO: add goal in level editor
+					obj = addObject(x, y, 4);
+					obj->setSize(sf::Vector2f(w, h));
+					obj->setSprite(textures[subtype]);
+				}
 				break;
 			case TMutant:
 				break;
 			case TItem:
+				break;
+			case TGoal:
 				break;
 			default:
 				//FAIL!

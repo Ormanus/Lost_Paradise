@@ -61,11 +61,10 @@ void Game::gameLoop()
 		float dt = elapsed.asSeconds();
 
 		if (peekState() == nullptr) continue;
-		GameState* state = peekState();
-		state->handleInput();
-		state->update(dt);
+		peekState()->handleInput();
+		peekState()->update(dt);
 		this->window.clear(sf::Color::White);
-		state->draw(dt);
+		peekState()->draw(dt);
 		this->window.display();
 	}
 }

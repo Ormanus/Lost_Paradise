@@ -107,6 +107,9 @@
     <ClInclude Include="State_PAUSE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Goal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="levels\level-0.txt">

@@ -23,7 +23,7 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 	sf::Vector2f pos = position;
 	sf::Vector2f prev = position;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-		hspeed+=3;
+		hspeed+=5;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		position.y++;
@@ -36,7 +36,7 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 		//vspeed -= 5;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-		hspeed-=3;
+		hspeed-=5;
 
 	vspeed += std::sin(direction) * speed;
 	
@@ -76,8 +76,6 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 	other = isColliding(1, objects);
 	if (other != nullptr )
 	{
-		//std::cout << "y-collision\n";
-		//setPosition(prev);
 		if (pos.y > other->getPosition().y)
 		{
 			setPosition(pos.x, other->getPosition().y + other->getSize().y);
@@ -91,9 +89,7 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 	}
 	else
 	{
-		//std::cout << "gravity\n";
 		prev = position;
-		//setPosition(pos);
 		if (isColliding(1, objects) != nullptr)
 		{
 			setPosition(prev);
@@ -107,7 +103,10 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 			
 		direction = atan2f(vspeed, hspeed);
 		speed = sqrt(vspeed*vspeed + hspeed*hspeed);
-		//std::cout << speed << "\n";
+	}
+	if (isColliding(4, objects))
+	{
+		destroy();
 	}
 }
 

@@ -17,6 +17,7 @@ public:
 
 private:
 	sf::View pauseView;
+	bool active = true;
 
 	void mainmenu();
 	void continuegame();

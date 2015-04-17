@@ -9,13 +9,13 @@ class Wall
 public:
 	Wall();
 	Wall(float width, float height);
-	~Wall();
-	void update(float dt, std::list<GameObject*>* objects) override;
-	void draw(sf::RenderWindow* target, sf::RenderStates states) const override;
-	void setSprite(sf::Sprite* sprite) override;
-	void setSprite(sf::Texture* texture) override;
-	bool isSolid(){ return solid; }
-private:
+	virtual ~Wall();
+	virtual void update(float dt, std::list<GameObject*>* objects) override;
+	virtual void draw(sf::RenderWindow* target, sf::RenderStates states) const override;
+	virtual void setSprite(sf::Sprite* sprite) override;
+	virtual void setSprite(sf::Texture* texture) override;
+	virtual bool isSolid(){ return solid; }
+protected:
 	bool solid = true;
 };
 

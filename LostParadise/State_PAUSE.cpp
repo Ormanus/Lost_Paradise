@@ -31,7 +31,7 @@ void State_PAUSE::handleInput()
 {
 	sf::Event event;
 
-	while (this->game->window.pollEvent(event))
+	while (active && this->game->window.pollEvent(event))
 	{
 		switch (event.type)
 		{
@@ -50,8 +50,16 @@ void State_PAUSE::handleInput()
 		//Nappuloita painellaan
 		case sf::Event::KeyPressed:
 		{
-			if (event.key.code == sf::Keyboard::Escape) this->mainmenu();
-			else if (event.key.code == sf::Keyboard::Space) this->continuegame();
+			if (event.key.code == sf::Keyboard::Escape)
+			{
+				this->mainmenu();
+				active = false;
+			}
+			else if (event.key.code == sf::Keyboard::Space)
+			{
+				this->continuegame();
+				active = false;
+			}
 			break;
 		}
 		default:
@@ -63,14 +71,15 @@ void State_PAUSE::handleInput()
 
 void State_PAUSE::mainmenu()
 {
-	this->game->pushState(new State_MENU(this->game));
-
+	//this->game->pushState(new State_MENU(this->game));
+	this->game->popState();
+	this->game->popState();
 	return;
 }
 
 void State_PAUSE::continuegame()
 {
-	this->game->pushState(new State_GAME(this->game));
+	this->game->popState();//pushState(new State_GAME(this->game));
 
 	return;
 }
