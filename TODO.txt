@@ -1,0 +1,14 @@
+T‰ss‰ siis lista teht‰vist‰ asioista:
+Lis‰‰ listaan jos tulee jotain mieleen!
+
+-mutantin lyˆnneille ajastin
+-knockback?
+-animaatiot
+-muuta grafiikkaa
+-erilaisia mutantteja
+-state pelin loppumiselle (YOU WON! tms)
+-intro?
+-parempi level editori
+-lis‰‰ kentti‰ (tai yksi paljon pidempi)
+-‰‰ni‰?
+-valikot toimimaan hiirell‰
