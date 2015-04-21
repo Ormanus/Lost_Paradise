@@ -46,11 +46,11 @@ void Monster::move(std::list<GameObject*>* objects)
 		}
 	}
 
-	if (player->getPosition().x > position.x)
+	if (player->getPosition().x > position.x + 24)
 	{
 		hspeed = 2;
 	}
-	else
+	else if (player->getPosition().x < position.x - 24)
 	{
 		hspeed = -2;
 	}
@@ -140,13 +140,24 @@ void Monster::move(std::list<GameObject*>* objects)
 	{
 		destroy();
 	}
-
+	//hit player
 	std::list<GameObject*> playerlist;
 	playerlist.push_back(player);
-	if (isColliding(0, &playerlist))
+	if (hitTimer <= 0){
+		if (isColliding(0, &playerlist))
+		{
+			player->setHp(player->getHp() - 1);
+			float dx = position.x - player->getPosition().x,
+				dy = position.y + 8 - player->getPosition().y;
+			player->setDirection(atan2(dy, dx));
+			player->setSpeed(20);
+
+			hitTimer = 40;
+		}
+	}
+	else
 	{
-		//player->setHp(player->getHp() - 1);
-		//restart level
+		hitTimer--;
 	}
 }
 

@@ -13,6 +13,7 @@ public:
 	void draw(sf::RenderWindow* target, sf::RenderStates states = sf::RenderStates::Default) const override;
 private:
 	void move(std::list<GameObject*>* objects);
+	float hitTimer = 0;
 };
 
 #endif

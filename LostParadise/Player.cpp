@@ -10,6 +10,7 @@ Player::Player()
 	size.x = 32;
 	size.y = 64;
 	ammo = 6;
+	hp = 10;
 }
 
 Player::~Player()
@@ -108,10 +109,34 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 	{
 		destroy();
 	}
+
+	if (position.y > 10000)
+	{
+		destroy();
+	}
 }
 
 void Player::draw(sf::RenderWindow* target, sf::RenderStates states) const
 {
 	sprite->setPosition(position);
 	target->draw(*sprite);
+
+	if (hp < 10)//hp bar
+	{
+		sf::RectangleShape bar(sf::Vector2f(10 * hp, 8));
+		bar.setFillColor(sf::Color::Green);
+		bar.setPosition(position.x - 50 + 16, position.y - 16);
+		target->draw(bar);
+	}
+
+	if (position.y > 8000) // fade to black when falling too low
+	{
+		float viewWidth = target->getSize().x, viewHeight = target->getSize().y;
+		sf::RectangleShape darkness(sf::Vector2f(viewWidth, viewHeight));
+		darkness.setPosition(target->getView().getCenter().x - viewWidth/2, 
+			target->getView().getCenter().y - viewHeight / 2);
+		float alpha = 255 * ((position.y - 8000) / 2000);
+		darkness.setFillColor(sf::Color(0, 0, 0, alpha));
+		target->draw(darkness);
+	}
 }
