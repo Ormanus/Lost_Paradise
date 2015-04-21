@@ -3,7 +3,6 @@
 
 #include "GameState.h"
 
-//Ors
 #include "Level.h"
 
 #include <SFML/Graphics.hpp>

@@ -66,6 +66,9 @@
     <ClCompile Include="State_PAUSE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="State_INTRO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Level.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Goal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State_INTRO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
