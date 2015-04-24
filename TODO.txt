@@ -1,20 +1,21 @@
 T‰ss‰ siis lista teht‰vist‰ asioista:
 Lis‰‰ listaan jos tulee jotain mieleen!
 
+[ ] = ei tehty
+[/] = kesken
+[X] = tehty (voi myˆs poistaa listasta)
+
 Statet:
--valikoihin vaihtoehtoja 
+-valikoihin vaihtoehtoja:
   -pause [ ]
   -options [ ]
 -valikot toimimaan hiirell‰ [/]
--state pelin loppumiselle (YOU WON! tms) [ ]
--intro? [/]
 
 
--knockback? [/]
+-mutanteille knockback [/]
 -animaatiot [ ]
--muuta grafiikkaa [ ]
+-lis‰‰ spritej‰ leveliin (tiili‰, kivimurskaa, sammalta yms.) [ ]
 -erilaisia mutantteja [ ]
--parempi level editori [ ]
+-parempi level editori [/]
 -lis‰‰ kentti‰ (tai yksi paljon pidempi) [ ]
--‰‰ni‰? [ ]
--resourceManager [ ]
+-resourceManager? [ ]
