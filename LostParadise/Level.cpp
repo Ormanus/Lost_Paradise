@@ -7,6 +7,7 @@
 #include <iostream>
 #include <algorithm>
 #include "State_GAME.h"
+#include "State_END.h"
 
 enum ObjectTypes
 {
@@ -94,7 +95,15 @@ void Level::update(float deltaTime)
 	{
 		if (it == player)
 		{
-			this->game->changeState(new State_GAME(this->game));
+			if (player->getHp() >= 0) //jos pelaaaja ei 'kuollut'
+			{
+				levelComplete(); //seuraava kenttä
+			}
+			else
+			{
+				//aloita alusta
+				this->game->changeState(new State_GAME(this->game));
+			}
 			break;
 		}
 		else
@@ -143,7 +152,7 @@ void Level::init()
 	objects.push_back(monster);
 	nonStaticObjects.push_back(monster);
 
-	loadLevel(0);
+	loadLevel();
 
 	if (player != nullptr)
 	{
@@ -239,7 +248,7 @@ void Level::removeObject(GameObject* obj)
 	delete obj;
 }
 
-void Level::loadLevel(int index)
+void Level::loadLevel()
 {
 	std::ifstream inFile("levels\\test.txt", std::ios::binary | std::ios::in);
 	if (inFile)
@@ -286,5 +295,18 @@ void Level::loadLevel(int index)
 				break;
 			}
 		}
+	}
+}
+
+void Level::levelComplete()
+{
+	levelNumber++;
+	if (levelNumber == levels)
+	{
+		this->game->changeState(new State_END(game));
+	}
+	else
+	{
+		loadLevel();
 	}
 }

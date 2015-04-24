@@ -22,13 +22,17 @@ private:
 	sf::View view;
 	std::vector<sf::Texture*> textures;
 	Player* player;
-	void loadTextures();
-	void loadTexture(std::string path);
-	void loadLevel(int index);
-	GameObject* addObject(float x, float y, int type);
-	void removeObject(GameObject* obj);
 	int shootingTimer;
 	Game* game;
+	int levelNumber = 0;
+	int levels = 1;
+
+	void loadTextures();
+	void loadTexture(std::string path);
+	void loadLevel();
+	GameObject* addObject(float x, float y, int type);
+	void removeObject(GameObject* obj);
+	void levelComplete();
 };
 
 

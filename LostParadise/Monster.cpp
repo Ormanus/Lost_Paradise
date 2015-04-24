@@ -147,8 +147,8 @@ void Monster::move(std::list<GameObject*>* objects)
 		if (isColliding(0, &playerlist))
 		{
 			player->setHp(player->getHp() - 1);
-			float dx = position.x - player->getPosition().x,
-				dy = position.y - 2 - player->getPosition().y;
+			float dx = player->getPosition().x - position.x,
+				dy = player->getPosition().y - position.y;
 			player->setDirection(atan2(dy, dx));
 			player->setSpeed(20);
 

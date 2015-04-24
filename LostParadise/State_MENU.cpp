@@ -63,6 +63,23 @@ void State_MENU::handleInput()
 				else if (event.key.code == sf::Keyboard::O) this->options();
 				break;
 			}
+			case sf::Event::MouseButtonPressed:
+			{
+				sf::Vector2i mousePosition = sf::Mouse::getPosition(game->window);
+				if (mousePosition.x > 275 && mousePosition.x < 430 && mousePosition.y > 404 && mousePosition.y < 626)
+				{
+					this->game->window.close();
+				}
+				else if (mousePosition.x > 522 && mousePosition.x < 775 && mousePosition.y > 466 && mousePosition.y < 626)
+				{
+					this->loadgame();
+				}
+				else if (mousePosition.x > 858 && mousePosition.x < 1004 && mousePosition.y > 444 && mousePosition.y < 626)
+				{
+					this->options();
+				}
+				break;
+			}
 			default:
 				break;
 		}

@@ -112,7 +112,7 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 
 	if (position.y > 10000)
 	{
-		destroy();
+		setHp(-1);
 	}
 }
 
