@@ -1,21 +1,7 @@
-﻿Build started 8.5.2015 10:31:59.
+﻿Build started 8.5.2015 11:29:26.
      1>Project "C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\LostParadise.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\SFML-2.1/include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Level.cpp Monster.cpp Player.cpp State_END.cpp State_GAME.cpp State_MENU.cpp State_PAUSE.cpp
-         Player.cpp
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(15): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(16): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(17): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(18): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(22): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(28): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\player.cpp(162): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\player.cpp(175): warning C4244: 'initializing' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\player.cpp(180): warning C4244: 'argument' : conversion from 'float' to 'sf::Uint8', possible loss of data
-         Generating Code...
-         Compiling...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\SFML-2.1/include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt State_PAUSE.cpp
          State_PAUSE.cpp
      1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(15): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
      1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(16): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
@@ -26,62 +12,6 @@
      1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
      1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
      1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\state_pause.cpp(54): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-         State_MENU.cpp
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(15): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(16): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(17): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(18): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(22): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(28): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\state_menu.cpp(55): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-         State_GAME.cpp
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(15): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(16): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(17): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(18): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(22): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(28): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\state_game.cpp(43): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\state_game.cpp(44): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-         State_END.cpp
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(15): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(16): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(17): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(18): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(22): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(28): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\state_end.cpp(54): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-         Monster.cpp
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(15): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(16): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(17): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(18): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(22): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(28): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\monster.cpp(152): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         Level.cpp
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(15): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(16): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(17): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(18): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(22): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(28): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\level.cpp(30): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\level.cpp(265): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\level.cpp(276): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\level.cpp(282): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\level.cpp(283): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\LostParadise.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\SFML-2.1/lib" "sfml-system-s-d.lib" "sfml-audio-s-d.lib" "sfml-window-s-d.lib" "sfml-graphics-s-d.lib" winmm.lib openal32.lib sndfile.lib opengl32.lib gdi32.lib freetype.lib glew.lib jpeg.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\LostParadise.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\LostParadise.lib" /MACHINE:X86 Debug\Animation.obj
          Debug\Bullet.obj
@@ -103,59 +33,9 @@
          Debug\State_OPTIONS.obj
          Debug\State_PAUSE.obj
          Debug\Wall.obj
-     1>sfml-system-s-d.lib(Clock.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(Err.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(Lock.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(Mutex.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(Sleep.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(String.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(ThreadLocal.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(Time.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(ClockImpl.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(MutexImpl.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(SleepImpl.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-system-s-d.lib(ThreadLocalImpl.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(Context.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(GlContext.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(GlResource.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(Joystick.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(JoystickManager.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(Keyboard.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(Mouse.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(SensorManager.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(VideoMode.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(Window.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(WindowImpl.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(WglContext.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(InputImpl.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(JoystickImpl.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(SensorImpl.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(VideoModeImpl.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-window-s-d.lib(WindowImplWin32.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(BlendMode.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Color.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(GLCheck.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(GLExtensions.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Image.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(ImageLoader.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RenderStates.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RenderTarget.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RenderWindow.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Shader.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Texture.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(TextureSaver.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Transform.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Transformable.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(View.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Vertex.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Shape.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(CircleShape.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RectangleShape.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Sprite.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(VertexArray.obj) : warning LNK4204: 'C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
          LostParadise.vcxproj -> C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\LostParadise.exe
      1>Done Building Project "C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\LostParadise.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.29
+Time Elapsed 00:00:00.82

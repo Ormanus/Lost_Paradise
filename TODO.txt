@@ -9,11 +9,12 @@ Statet:
 -valikoihin vaihtoehtoja:
   -pause [ ]
   -options [ ]
--valikot toimimaan hiirell‰ [/]
+-valikot toimimaan hiirell‰ [/] (kaikki vaihtoehdot valmiina)
 
 
--mutanteille knockback [/]
--animaatiot [ ]
+-‰‰net[ ]
+-mutanteille knockback [X]
+-animaatiot [/] (koodi valmis, statet ja spritesheetit kesken)
 -lis‰‰ spritej‰ leveliin (tiili‰, kivimurskaa, sammalta yms.) [ ]
 -erilaisia mutantteja [ ]
 -parempi level editori [/]

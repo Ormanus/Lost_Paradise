@@ -48,8 +48,6 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 			vspeed = -10;
 		}
 		position = prev;
-		//pos = position;
-		//vspeed -= 5;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		hspeed-=5;
