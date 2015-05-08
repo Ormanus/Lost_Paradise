@@ -20,12 +20,18 @@ Player::Player()
 	playerTexture = new sf::Texture();
 	playerTexture->loadFromFile("sprites/player_animation.png");
 	animation = new Animation(playerTexture, 32);
+
+	bulletTexture = new sf::Texture();
+	bulletTexture->loadFromFile("sprites/bullet.png");
+	bulletSprite = new sf::Sprite(*bulletTexture);
 }
 
 Player::~Player()
 {
 	delete armTexture;
 	delete armSprite;
+	delete bulletTexture;
+	delete bulletSprite;
 	delete sprite;
 	delete playerTexture;
 	delete animation;
@@ -177,5 +183,13 @@ void Player::draw(sf::RenderWindow* target, sf::RenderStates states) const
 		float alpha = 255 * ((position.y - 8000) / 2000);
 		darkness.setFillColor(sf::Color(0, 0, 0, alpha));
 		target->draw(darkness);
+	}
+
+	//draw the amount of bullets
+	for (int i = 0; i <= ammo; i++)
+	{
+		bulletSprite->setPosition(position.x - target->getView().getSize().x / 2 + 16 * i,
+			position.y - target->getView().getSize().y / 2 + 32);
+		target->draw(*bulletSprite);
 	}
 }

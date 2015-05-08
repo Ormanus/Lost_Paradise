@@ -80,7 +80,7 @@ void Level::update(float deltaTime)
 			Bullet* b = new Bullet(player->getPosition().x + 16, player->getPosition().y + 32, direction);
 			objects.push_back(b);
 			nonStaticObjects.push_back(b);
-			shootingTimer = 10;
+			shootingTimer = 30;
 			player->shoot();
 			std::cout << "Mouse: " << mouseX - 640 << ", " << mouseY - 400 << "\n";
 		}

@@ -13,7 +13,7 @@ public:
 	void update(float dt, std::list<GameObject*>* objects) override;
 	void draw(sf::RenderWindow* target, sf::RenderStates states = sf::RenderStates::Default) const override;
 	int getAmmo(){ return ammo; }
-	void shoot(){ ammo++; };
+	void shoot(){ ammo--; };
 private:
 	int ammo;
 	sf::Texture* armTexture;
@@ -21,6 +21,9 @@ private:
 
 	sf::Texture* playerTexture;
 	Animation* animation;
+
+	sf::Texture* bulletTexture;
+	sf::Sprite* bulletSprite;
 };
 
 #endif

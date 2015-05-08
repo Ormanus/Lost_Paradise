@@ -6,6 +6,7 @@ Lisää listaan jos tulee jotain mieleen!
 [X] = tehty (voi myös poistaa listasta)
 
 Statet:
+-Parempi kuva END stateen [ ]
 -valikoihin vaihtoehtoja:
   -pause [ ]
   -options [ ]

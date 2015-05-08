@@ -150,7 +150,7 @@ void Monster::move(std::list<GameObject*>* objects)
 			float dx = player->getPosition().x - position.x,
 				dy = player->getPosition().y - position.y;
 			player->setDirection(atan2(dy, dx));
-			player->setSpeed(20);
+			player->setSpeed(10);
 
 			hitTimer = 40;
 		}
