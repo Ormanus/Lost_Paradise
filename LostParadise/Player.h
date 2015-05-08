@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "Creature.h"
+#include "Animation.h"
 
 class Player
 	: public Creature
@@ -15,6 +16,11 @@ public:
 	void shoot(){ ammo++; };
 private:
 	int ammo;
+	sf::Texture* armTexture;
+	sf::Sprite* armSprite;
+
+	sf::Texture* playerTexture;
+	Animation* animation;
 };
 
 #endif

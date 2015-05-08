@@ -36,40 +36,43 @@ void State_END::handleInput()
 {
 	sf::Event event;
 
-	while (active && this->game->window.pollEvent(event))
+	while (active)
 	{
-		switch (event.type)
+		if (this->game->window.pollEvent(event))
 		{
-			//Ikkuna suljetaan
-		case sf::Event::Closed:
-		{
-			game->window.close();
-			break;
-		}
-			//Ikkunan kokoa muutetaan
-		case sf::Event::Resized:
-		{
-			this->view.setSize(event.size.width, event.size.height);
-			break;
-		}
-			//Nappuloita painellaan
-		case sf::Event::KeyPressed:
-		{
-			if (event.key.code == sf::Keyboard::Escape)
+			switch (event.type)
 			{
-				this->mainMenu();
-				active = false;
+				//Ikkuna suljetaan
+			case sf::Event::Closed:
+			{
+				game->window.close();
+				break;
 			}
-			break;
-		}
-		case sf::Event::MouseButtonPressed:
-		{
-			this->playAgain();
-			active = false;
-			break;
-		}
-		default:
-			break;
+				//Ikkunan kokoa muutetaan
+			case sf::Event::Resized:
+			{
+				this->view.setSize(event.size.width, event.size.height);
+				break;
+			}
+				//Nappuloita painellaan
+			case sf::Event::KeyPressed:
+			{
+				if (event.key.code == sf::Keyboard::Escape)
+				{
+					this->mainMenu();
+					active = false;
+				}
+				break;
+			}
+			case sf::Event::MouseButtonPressed:
+			{
+				this->playAgain();
+				active = false;
+				break;
+			}
+			default:
+				break;
+			}
 		}
 	}
 	return;

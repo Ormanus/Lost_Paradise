@@ -14,6 +14,7 @@ public:
 	GameObject* detectCollision(std::list<GameObject*>* objects);
 private:
 	float direction;
+	float timer = 5;
 };
 
 #endif

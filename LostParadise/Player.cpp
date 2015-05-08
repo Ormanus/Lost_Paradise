@@ -11,15 +11,30 @@ Player::Player()
 	size.y = 64;
 	ammo = 6;
 	hp = 10;
+
+	armTexture = new sf::Texture();
+	armTexture->loadFromFile("sprites/arm.png");
+	armSprite = new sf::Sprite(*armTexture);
+	armSprite->setOrigin(8, 8);
+
+	playerTexture = new sf::Texture();
+	playerTexture->loadFromFile("sprites/player_animation.png");
+	animation = new Animation(playerTexture, 32);
 }
 
 Player::~Player()
 {
+	delete armTexture;
+	delete armSprite;
 	delete sprite;
+	delete playerTexture;
+	delete animation;
 }
 
 void Player::update(float dt, std::list<GameObject*>* objects)
 {
+	animation->update(dt);
+
 	float hspeed = 0, vspeed = 0;
 	sf::Vector2f pos = position;
 	sf::Vector2f prev = position;
@@ -105,6 +120,7 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 		direction = atan2f(vspeed, hspeed);
 		speed = sqrt(vspeed*vspeed + hspeed*hspeed);
 	}
+
 	if (isColliding(4, objects))
 	{
 		destroy();
@@ -118,8 +134,33 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 
 void Player::draw(sf::RenderWindow* target, sf::RenderStates states) const
 {
+	//draw player body
 	sprite->setPosition(position);
 	target->draw(*sprite);
+
+	//draw animation:
+	//switch state
+
+	float rotation = armSprite->getRotation();
+	if (rotation > 90 && rotation < 270)
+	{
+		animation->getSprite()->setScale(-1, 1);
+		animation->getSprite()->setPosition(position.x+32, position.y);
+	}
+	else
+	{
+		animation->getSprite()->setScale(1, 1);
+		animation->getSprite()->setPosition(position);
+	}
+	target->draw(*(animation->getSprite()));
+
+	//draw arm
+	armSprite->setPosition(position.x+16, position.y+24);
+	sf::Vector2i mouseWindow = sf::Mouse::getPosition(*target);
+	sf::Vector2f mouseWorld = target->mapPixelToCoords(mouseWindow);
+	float direction = atan2(mouseWorld.y - position.y - 24, mouseWorld.x - position.x - 16);
+	armSprite->setRotation(direction*180/3.14159265358979);
+	target->draw(*armSprite);
 
 	if (hp < 10)//hp bar
 	{

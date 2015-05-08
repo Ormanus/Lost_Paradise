@@ -38,6 +38,11 @@ void Bullet::update(float dt, std::list<GameObject*>* objects)
 			destroy();
 		}
 	}
+	timer -= dt;
+	if (timer < 0)
+	{
+		destroy();
+	}
 }
 
 GameObject* Bullet::detectCollision(std::list<GameObject*>* objects)
