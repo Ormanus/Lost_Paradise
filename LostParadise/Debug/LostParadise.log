@@ -1,36 +1,23 @@
-﻿Build started 8.5.2015 12:50:13.
-     1>Project "C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\LostParadise.vcxproj" on node 2 (Build target(s)).
+﻿Build started 13.5.2015 2:10:26.
+     1>Project "C:\Users\Olli\Documents\GitHub\Lost_Paradise\LostParadise\LostParadise.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\SFML-2.1/include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Level.cpp Player.cpp
-         Player.cpp
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(15): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(16): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(17): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(18): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(22): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(28): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\player.cpp(166): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\player.cpp(179): warning C4244: 'initializing' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\player.cpp(184): warning C4244: 'argument' : conversion from 'float' to 'sf::Uint8', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Olli\Documents\GitHub\Lost_Paradise\LostParadise\SFML-2.1/include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Level.cpp
          Level.cpp
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(15): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(16): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(17): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(18): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(22): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(28): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\creature.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\level.cpp(30): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\level.cpp(265): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\level.cpp(276): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\level.cpp(282): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\ttv14sollis\documents\github\lost-paradise\lostparadise\level.cpp(283): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         Generating Code...
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\creature.h(15): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\creature.h(16): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\creature.h(17): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\creature.h(18): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\creature.h(22): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\creature.h(28): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\creature.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\creature.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\level.cpp(30): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\level.cpp(289): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\level.cpp(300): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\level.cpp(311): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\olli\documents\github\lost_paradise\lostparadise\level.cpp(312): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\LostParadise.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\SFML-2.1/lib" "sfml-system-s-d.lib" "sfml-audio-s-d.lib" "sfml-window-s-d.lib" "sfml-graphics-s-d.lib" winmm.lib openal32.lib sndfile.lib opengl32.lib gdi32.lib freetype.lib glew.lib jpeg.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\LostParadise.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\LostParadise.lib" /MACHINE:X86 Debug\Animation.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Olli\Documents\GitHub\Lost_Paradise\LostParadise\Debug\LostParadise.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Olli\Documents\GitHub\Lost_Paradise\LostParadise\SFML-2.1/lib" "sfml-system-s-d.lib" "sfml-audio-s-d.lib" "sfml-window-s-d.lib" "sfml-graphics-s-d.lib" winmm.lib openal32.lib sndfile.lib opengl32.lib gdi32.lib freetype.lib glew.lib jpeg.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Olli\Documents\GitHub\Lost_Paradise\LostParadise\Debug\LostParadise.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Olli\Documents\GitHub\Lost_Paradise\LostParadise\Debug\LostParadise.lib" /MACHINE:X86 Debug\Animation.obj
          Debug\Bullet.obj
          Debug\Creature.obj
          Debug\Game.obj
@@ -50,9 +37,9 @@
          Debug\State_OPTIONS.obj
          Debug\State_PAUSE.obj
          Debug\Wall.obj
-         LostParadise.vcxproj -> C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\Debug\LostParadise.exe
-     1>Done Building Project "C:\Users\TTV14SOlliS\Documents\GitHub\Lost-Paradise\LostParadise\LostParadise.vcxproj" (Build target(s)).
+         LostParadise.vcxproj -> C:\Users\Olli\Documents\GitHub\Lost_Paradise\LostParadise\Debug\LostParadise.exe
+     1>Done Building Project "C:\Users\Olli\Documents\GitHub\Lost_Paradise\LostParadise\LostParadise.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.32
+Time Elapsed 00:00:00.87

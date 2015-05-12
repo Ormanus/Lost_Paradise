@@ -13,12 +13,12 @@ Player::Player()
 	hp = 10;
 
 	armTexture = new sf::Texture();
-	armTexture->loadFromFile("sprites/arm.png");
+	armTexture->loadFromFile("sprites/Player_hand.png");
 	armSprite = new sf::Sprite(*armTexture);
-	armSprite->setOrigin(8, 8);
+	armSprite->setOrigin(1, 4);
 
 	playerTexture = new sf::Texture();
-	playerTexture->loadFromFile("sprites/player_animation.png");
+	playerTexture->loadFromFile("sprites/Player_WALK.png");
 	animation = new Animation(playerTexture, 32);
 
 	bulletTexture = new sf::Texture();
@@ -39,7 +39,7 @@ Player::~Player()
 
 void Player::update(float dt, std::list<GameObject*>* objects)
 {
-	animation->update(dt);
+	animation->update(dt*2);
 
 	float hspeed = 0, vspeed = 0;
 	sf::Vector2f pos = position;
@@ -139,8 +139,8 @@ void Player::update(float dt, std::list<GameObject*>* objects)
 void Player::draw(sf::RenderWindow* target, sf::RenderStates states) const
 {
 	//draw player body
-	sprite->setPosition(position);
-	target->draw(*sprite);
+	//sprite->setPosition(position);
+	//target->draw(*sprite);
 
 	//draw animation:
 	//switch state

@@ -1,6 +1,7 @@
 #ifndef MONSTER_H
 #define MONSTER_H
 
+#include "Animation.h"
 #include "Creature.h"
 
 class Monster
@@ -14,6 +15,8 @@ public:
 private:
 	void move(std::list<GameObject*>* objects);
 	float hitTimer = 0;
+	sf::Texture* monsterTexture;
+	Animation* animation;
 };
 
 #endif

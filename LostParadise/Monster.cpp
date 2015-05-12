@@ -6,8 +6,11 @@
 Monster::Monster()
 {
 	size.x = 32;
-	size.y = 64;
+	size.y = 43;
 	type = 2;
+	monsterTexture = new sf::Texture();
+	monsterTexture->loadFromFile("sprites/Enemy_WALK.png");
+	animation = new Animation(monsterTexture, 32);
 }
 
 Monster::~Monster()
@@ -17,6 +20,7 @@ Monster::~Monster()
 
 void Monster::update(float dt, std::list<GameObject*>* objects)
 {
+	animation->update(dt);
 	float hspeed = 0, vspeed = 0;
 	sf::Vector2f pos = position;
 	sf::Vector2f prev = position;
@@ -163,6 +167,21 @@ void Monster::move(std::list<GameObject*>* objects)
 
 void Monster::draw(sf::RenderWindow* target, sf::RenderStates states) const
 {
-	sprite->setPosition(position);
-	target->draw(*sprite);
+	//sprite->setPosition(position);
+	//target->draw(*sprite);
+
+	//float hspeed = cos(direction);
+	float rotation = direction;
+
+	if (rotation > 90 && rotation < 270)
+	{
+		animation->getSprite()->setScale(-1, 1);
+		animation->getSprite()->setPosition(position.x + 32, position.y);
+	}
+	else
+	{
+		animation->getSprite()->setScale(1, 1);
+		animation->getSprite()->setPosition(position);
+	}
+	target->draw(*(animation->getSprite()));
 }

@@ -25,7 +25,7 @@ private:
 	int shootingTimer;
 	Game* game;
 	int levelNumber = 0;
-	int levels = 1;
+	int levels = 2;
 
 	void loadTextures();
 	void loadTexture(std::string path);

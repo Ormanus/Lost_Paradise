@@ -97,7 +97,10 @@ void Level::update(float deltaTime)
 		{
 			if (player->getHp() >= 0) //jos pelaaaja ei 'kuollut'
 			{
+				removeObject(it);
+				player = nullptr;
 				levelComplete(); //seuraava kenttä
+				std::cout << "next\n";
 			}
 			else
 			{
@@ -116,22 +119,25 @@ void Level::update(float deltaTime)
 void Level::draw()
 {
 	//piirtää kaiken
-	window->clear(sf::Color(32, 16, 8));
+	if (player != nullptr)
+	{
+		window->clear(sf::Color(32, 16, 8));
 
-	window->setView(window->getDefaultView());
+		window->setView(window->getDefaultView());
 
-	sf::Sprite bg(*textures[16]);
-	bg.setScale(2, 2);
-	window->draw(bg);
+		sf::Sprite bg(*textures[16]);
+		bg.setScale(2, 2);
+		window->draw(bg);
 
-	sf::Vector2f center = player->getPosition();
-	center.x += player->getSize().x / 2;
-	center.y += player->getSize().y / 2;
-	view.setCenter(center);
-	window->setView(view);
+		sf::Vector2f center = player->getPosition();
+		center.x += player->getSize().x / 2;
+		center.y += player->getSize().y / 2;
+		view.setCenter(center);
+		window->setView(view);
 
-	for (GameObject* it : objects){
-		(*it).draw(window);
+		for (GameObject* it : objects){
+			(*it).draw(window);
+		}
 	}
 }
 
@@ -143,14 +149,6 @@ void Level::init()
 
 	//lataa kentän tekstuurit
 	loadTextures();
-
-	Monster* monster = new Monster();
-	monster->setPosition(512, -64);
-	sf::Sprite* spr2 = new sf::Sprite(*textures[7]);
-	spr2->setScale(0.5, 1);
-	monster->setSprite(spr2);
-	objects.push_back(monster);
-	nonStaticObjects.push_back(monster);
 
 	loadLevel();
 
@@ -173,6 +171,10 @@ void Level::loadTexture(std::string path)
 	texture->loadFromFile(path);
 	texture->setRepeated(true);
 	textures.push_back(texture);
+	if (texture == nullptr)
+	{
+		std::cout << "Tekstuurin lataaminen epäonnistui\n";
+	}
 }
 
 void Level::loadTextures()
@@ -187,10 +189,10 @@ void Level::loadTextures()
 	loadTexture("sprites\\wall_smooth.png");
 	loadTexture("sprites\\wall_smooth_reinforced.png");
 	loadTexture("sprites\\green_stuff.png");
-	loadTexture("sprites\\wall_rust_bottom.png"); //8
-	loadTexture("sprites\\wall_rust_top.png");
-	loadTexture("sprites\\wall_rust_bottom_corner.png");
-	loadTexture("sprites\\wall_rust_top_corner.png");
+	loadTexture("sprites\\grey_noise.png"); //8
+	loadTexture("sprites\\cobble.png");
+	loadTexture("sprites\\wall_bg.png");
+	loadTexture("sprites\\tiles_brown.png");
 	loadTexture("sprites\\bird.png"); //12
 	loadTexture("sprites\\tiles.png");
 	loadTexture("sprites\\tiles_blue.png");
@@ -203,17 +205,26 @@ GameObject* Level::addObject(float x, float y, int type)
 	GameObject* obj = nullptr;
 	switch (type)
 	{
-	case 0: 
+	case TPlayer: 
 		if (player == nullptr)
 		{
 			obj = new Player();
 			nonStaticObjects.push_back(obj);
 		}
+		else
+		{
+			//player->setPosition(x, y);
+		}
 		break;
-	case 1:
+	case TWall:
 		obj = new Wall();
 		break;
-	case 4:
+	case TMutant:
+		obj = new Monster();
+		obj->setSprite(textures[1]);
+		nonStaticObjects.push_back(obj);
+		break;
+	case TGoal:
 		obj = new Goal();
 		break;
 	}
@@ -250,7 +261,20 @@ void Level::removeObject(GameObject* obj)
 
 void Level::loadLevel()
 {
-	std::ifstream inFile("levels\\test.txt", std::ios::binary | std::ios::in);
+	//for (auto it : objects)
+	//{
+	//	if (it != player)
+	//		removeObject(it);
+	//}
+	//for (auto it : nonStaticObjects)
+	//{
+	//	if (it != player)
+	//		removeObject(it);
+	//}
+	objects.clear();
+	nonStaticObjects.clear();
+
+	std::ifstream inFile("levels\\level-"+std::to_string(levelNumber)+".txt", std::ios::binary | std::ios::in);
 	if (inFile)
 	{
 		while (!inFile.eof())
@@ -275,13 +299,18 @@ void Level::loadLevel()
 				inFile.read((char*)&h, sizeof(int));
 				obj->setSize(sf::Vector2f(w, h));
 				inFile.read((char*)&subtype, sizeof(int));
+				if (subtype > 127)
+				{
+					subtype = 255 - subtype;
+					((Wall*)obj)->setSolid(false);
+				}
 				obj->setSprite(textures[subtype]);
 				if (subtype == 12)
 				{
 					objects.pop_back(); //delete wall. TODO: add goal in level editor
 					obj = addObject(x, y, 4);
 					obj->setSize(sf::Vector2f(w, h));
-					obj->setSprite(textures[subtype]);
+					obj->setSprite(textures[12]);
 				}
 				break;
 			case TMutant:
