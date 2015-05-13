@@ -68,16 +68,16 @@ void State_END::handleInput()
 			{
 				sf::Vector2i mousePosition = sf::Mouse::getPosition(this->game->window);
 
-				if (mousePosition.y > 58 && mousePosition.y < 758)
+				if (mousePosition.y > 456 && mousePosition.y < 600)
 				{
-					if (mousePosition.x > 46 && mousePosition.x < 458)
-					{
-						this->playAgain();
-						active = false;
-					}
-					else if (mousePosition.x > 486 && mousePosition.x < 916)
+					if (mousePosition.x > 370 && mousePosition.x < 484)
 					{
 						this->mainMenu();
+						active = false;
+					}
+					else if (mousePosition.x > 614 && mousePosition.x < 730)
+					{
+						this->playAgain();
 						active = false;
 					}
 				}

@@ -72,16 +72,16 @@ void State_PAUSE::handleInput()
 		case sf::Event::MouseButtonPressed:
 		{
 			sf::Vector2i mousePosition = sf::Mouse::getPosition(game->window);
-			if (mousePosition.x > 408 && mousePosition.x < 866)
+			if (mousePosition.y > 456 && mousePosition.y < 600)
 			{
-				if (mousePosition.y > 408 && mousePosition.y < 509)
-				{
-					this->continuegame();
-					active = false;
-				}
-				else if (mousePosition.y > 541 && mousePosition.y < 643)
+				if (mousePosition.x > 440 && mousePosition.x < 570)
 				{
 					this->mainmenu();
+					active = false;
+				}
+				else if (mousePosition.x > 710 && mousePosition.x < 830)
+				{
+					this->continuegame();
 					active = false;
 				}
 			}

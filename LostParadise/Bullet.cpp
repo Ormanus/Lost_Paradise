@@ -1,5 +1,6 @@
 #include "Bullet.h"
 #include "Monster.h"
+#include "Wall.h"
 
 Bullet::Bullet(float x, float y, float direction)
 {
@@ -15,9 +16,11 @@ Bullet::~Bullet()
 
 void Bullet::draw(sf::RenderWindow* target, sf::RenderStates states) const
 {
-	sf::CircleShape circle(5);
-	circle.setPosition(position);
-	target->draw(circle);
+	sf::RectangleShape rect(sf::Vector2f(6, 2));
+	rect.setOrigin(3, 1);
+	rect.setPosition(position);
+	rect.setRotation(direction*180/3.14159265);
+	target->draw(rect);
 }
 
 void Bullet::update(float dt, std::list<GameObject*>* objects)
@@ -57,7 +60,17 @@ GameObject* Bullet::detectCollision(std::list<GameObject*>* objects)
 				position.y < it->getPosition().y + it->getSize().y
 				)
 			{
-				return it;
+				if (it->getType() == 1)
+				{
+					if (((Wall*)it)->isSolid())
+					{
+						return it;
+					}
+				}
+				else
+				{
+					return it;
+				}
 			}
 		}
 	}

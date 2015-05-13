@@ -150,19 +150,23 @@ void Player::draw(sf::RenderWindow* target, sf::RenderStates states) const
 	{
 		animation->getSprite()->setScale(-1, 1);
 		animation->getSprite()->setPosition(position.x+32, position.y);
+		armSprite->setScale(1, -1);
+		armSprite->setPosition(position.x + 24, position.y + 16);
 	}
 	else
 	{
 		animation->getSprite()->setScale(1, 1);
 		animation->getSprite()->setPosition(position);
+		armSprite->setScale(1, 1);
+		armSprite->setPosition(position.x + 8, position.y + 16);
+
 	}
 	target->draw(*(animation->getSprite()));
 
 	//draw arm
-	armSprite->setPosition(position.x+16, position.y+24);
 	sf::Vector2i mouseWindow = sf::Mouse::getPosition(*target);
 	sf::Vector2f mouseWorld = target->mapPixelToCoords(mouseWindow);
-	float direction = atan2(mouseWorld.y - position.y - 24, mouseWorld.x - position.x - 16);
+	float direction = atan2(mouseWorld.y - position.y - 8, mouseWorld.x - position.x - 16);
 	armSprite->setRotation(direction*180/3.14159265358979);
 	target->draw(*armSprite);
 

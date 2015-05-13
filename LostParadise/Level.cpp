@@ -76,11 +76,11 @@ void Level::update(float deltaTime)
 			sf::Vector2f mouseWorld = window->mapPixelToCoords(mouseWindow);
 			float mouseX = mouseWorld.x,
 				mouseY = mouseWorld.y;
-			float direction = atan2(mouseY - player->getPosition().y - 32, mouseX - player->getPosition().x - 16);
-			Bullet* b = new Bullet(player->getPosition().x + 16, player->getPosition().y + 32, direction);
+			float direction = atan2(mouseY - player->getPosition().y - 16, mouseX - player->getPosition().x - 16);
+			Bullet* b = new Bullet(player->getPosition().x + 16, player->getPosition().y + 16, direction);
 			objects.push_back(b);
 			nonStaticObjects.push_back(b);
-			shootingTimer = 30;
+			shootingTimer = 40;
 			player->shoot();
 			std::cout << "Mouse: " << mouseX - 640 << ", " << mouseY - 400 << "\n";
 		}

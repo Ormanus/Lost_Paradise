@@ -59,6 +59,19 @@ void State_OPTIONS::handleInput()
 			if (event.key.code == sf::Keyboard::Escape) this->mainmenu();
 			break;
 		}
+		case sf::Event::MouseButtonPressed:
+		{
+			sf::Vector2i mousePosition = sf::Mouse::getPosition(this->game->window);
+
+			if (mousePosition.y > 480 && mousePosition.y < 616)
+			{
+				if (mousePosition.x > 586 && mousePosition.x < 700)
+				{
+					this->mainmenu();
+				}
+			}
+			break;
+		}
 		default:
 			break;
 		}
